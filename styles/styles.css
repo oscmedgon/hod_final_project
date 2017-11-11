@@ -25,7 +25,6 @@ body{
   border-top: 1px solid white;
   border-bottom: 1px solid white;
   font-size: 20px;
-  text-transform: lowercase;
 }
 .article-title:hover{
   color: #738BD7;
@@ -72,6 +71,11 @@ margin-top: 50px;
 .article-body{
   width: 45%;
 }
+@media (min-width: 1000px) {
+  .content .articles{
+    margin-bottom: 300px;
+  }
+}
 @media (max-width: 1200px) {
   .article-body{
     width: 40%;
@@ -86,5 +90,10 @@ margin-top: 50px;
   }
   .article-body{
     width: 90%;
+  }
+}
+@media (max-width: 991px) {
+  .content .sidebar{
+    margin-bottom: 400px;
   }
 }

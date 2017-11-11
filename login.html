@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Harbingers Of Devastation</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./styles/login.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="login-page">
+      <div class="form">
+        <form class="register-form">
+          <input type="text" placeholder="Nombre de usuario..."/>
+          <input type="password" placeholder="Contraseña..."/>
+          <input type="text" placeholder="Correo elecrónico..."/>
+          <button>create</button>
+          <p class="message">¿Tienes ya una cuenta? <a href="#">Inicia sesión</a></p>
+        </form>
+        <form class="login-form">
+          <input type="text" placeholder="Nombre de usuario..."/>
+          <input type="password" placeholder="Contraseña..."/>
+          <button>login</button>
+          <p class="message">¿No estás registrado? <a href="#">Crea una cuenta</a></p>
+        </form>
+      </div>
+    </div>
+    <footer class="footer-menu col-xs-12">
+      <section class="author_legal col-md-3">
+        <span>
+          &copy; <strong>Harbingers Of Devastation</strong>
+        </span>
+        <span>
+          Designed by <strong><a href="https://www.omwdesign.eu">Óscar Medina</a></strong>
+        </span>
+      </section>
+      <section class="footer-logo col-md-1 col-sm-2 col-xs-6">
+        <img src="images/silueta_fondo_transparente-min.png" class="img-responsive img-circle" alt="footer-logo">
+      </section>
+      <section class="social-networks col-md-3">
+        <img src="images/social/discord.png" width="30px" height="30px" alt="discord-logo">
+        <img src="images/social/twitter.png" width="30px" height="30px" alt="twitter-logo">
+        <img src="images/social/youtube.png" width="30px" height="30px" alt="youtube-logo">
+        <img src="images/social/facebook.svg" width="30px" height="30px" alt="facebook-logo">
+        <img src="images/social/twitch.svg" width="30px" height="30px" alt="twitch-logo">
+      </section>
+    </footer>
+  </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      $('.message a').click(function(){
+       $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+      });
+    </script>
+  </body>
+</html>

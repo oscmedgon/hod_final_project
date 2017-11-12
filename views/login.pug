@@ -1,0 +1,20 @@
+extends layout/login
+
+block content
+  .login-page
+  .form
+    form.register-form
+      input(type='text', placeholder='Nombre de usuario...')
+      input(type='password', placeholder='Contraseña...')
+      input(type='text', placeholder='Correo elecrónico...')
+      button create
+      p.message
+        | ¿Tienes ya una cuenta? 
+        a(href='#') Inicia sesión
+    form.login-form
+      input(type='text', placeholder='Nombre de usuario...')
+      input(type='password', placeholder='Contraseña...')
+      button login
+      p.message
+        | ¿No estás registrado? 
+        a(href='#') Crea una cuenta

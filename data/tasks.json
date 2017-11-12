@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "Buy Milk",
+    "completed": false,
+    "createdAt":1509376585671,
+    "completedAt": null
+  },
+  {
+    "id": 2,
+    "title": "Buy Gold",
+    "completed": false,
+    "createdAt":1509376603049,
+    "completedAt": null
+  },
+  {
+    "id": 3,
+    "title": "Buy Water",
+    "completed": true,
+    "createdAt":1509376608651,
+    "completedAt": 1509376608652
+  }
+]

@@ -1,5 +1,5 @@
 .footer-menu{
-  background-color: #323232;
+  background-color: #232629;
   position: fixed;
   bottom: 0%;
   display: flex;
@@ -48,5 +48,9 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+  }
+  .footer-menu{
+    background-color: #232629;
+    position: static;
   }
 }

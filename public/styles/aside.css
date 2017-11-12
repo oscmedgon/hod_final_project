@@ -1,0 +1,29 @@
+.user-management{
+  border-radius: 10px;
+  background-color: #232629;
+  margin-bottom: 10px;
+}
+.user-management h2{
+  text-align: center;
+  padding-top: 10px;
+}
+.user-management p{
+  padding: 0px 30px;
+  text-align: justify;
+}
+.user-management a{
+  display: block;
+  text-align: center;
+  width: 80%;
+  margin: auto;
+}
+.user-management a button{
+  background-color: #738bd7;
+  border: 0px;
+  border-radius: 5px;
+  color: white;
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: bolder;
+}

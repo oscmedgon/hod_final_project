@@ -1,5 +1,5 @@
 .navbar-default {
-  background-color: #323232;
+  background-color: #232629;
   border-color: #738bd7;
 }
 .navbar-default .navbar-brand {
@@ -21,7 +21,7 @@
   color: #ffffff;
 }
 .navbar-default .navbar-nav > li > .dropdown-menu {
-  background-color: #323232;
+  background-color: #232629;
 }
 .navbar-default .navbar-nav > li > .dropdown-menu > li > a {
   color: #fdf9f9;

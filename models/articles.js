@@ -1,9 +1,10 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const collection = 'users'
+var Users = mongoose.model('User')
+const collection = 'articles'
 
 const ArticleSchema = new Schema({
-  author: String,
+  author: { type: Schema.ObjectId, ref: 'Users' },
   image: String,
   title: String,
   body: String,
@@ -12,4 +13,4 @@ const ArticleSchema = new Schema({
 
 }, { collection })
 
-module.exports = mongoose.model('User', ArticleSchema)
+module.exports = mongoose.model('Article', ArticleSchema)

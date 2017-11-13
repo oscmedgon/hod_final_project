@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+var Articles = mongoose.model('Article')
 const collection = 'users'
 
 const UserSchema = new Schema({
@@ -12,7 +13,7 @@ const UserSchema = new Schema({
   date_of_creation: String,
   website: String,
   user_type: Number,
-  articles: []
+  articles: [{ type: Schema.ObjectId, ref: 'Articles' }]
 }, { collection })
 
 module.exports = mongoose.model('User', UserSchema)

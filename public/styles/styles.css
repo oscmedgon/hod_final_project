@@ -72,10 +72,12 @@ margin-top: 50px;
 .article-body{
   width: 45%;
 }
+.hot-article-body p, .article-body p{
+  font-size: 20px;
+}
+
 @media (min-width: 1000px) {
-  .content .articles{
-    margin-bottom: 300px;
-  }
+
 }
 @media (max-width: 1200px) {
   .article-body{
@@ -94,7 +96,5 @@ margin-top: 50px;
   }
 }
 @media (max-width: 991px) {
-  .content .sidebar{
-    margin-bottom: 400px;
-  }
+
 }

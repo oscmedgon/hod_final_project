@@ -1,6 +1,6 @@
 .footer-menu{
   background-color: #232629;
-  position: fixed;
+  position: sticky;
   bottom: 0%;
   display: flex;
   flex-wrap: wrap;

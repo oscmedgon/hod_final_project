@@ -37,7 +37,7 @@ block content
                   | Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
           article.article-body
             h2.article-title
-              | SEstickyCONDARY ARTICLE TITLE
+              | SECONDARY ARTICLE TITLE
             .row
               div
                 img.img-responsive(src='https://www.harbingersofdevastation.com/images/uploads/lucioball.jpg', alt='article-img')
@@ -57,10 +57,14 @@ block content
                   | Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
       aside.col-md-3.sidebar
         if username
-          .user-management
-            h2 Bienvenido a HoD 
+          .user-management.row
+            h2 Bienvenido  
               span=username
-            p Hola que ase, esto es un texto de prueba
+            .col-md-3
+              img.img-responsive(src=avatar)
+            .col-md-9
+              p=description
+            p=date_of_creation
             a(href="./logout")
               button.go-login Cerrar sesión
         else

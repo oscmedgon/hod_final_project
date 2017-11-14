@@ -1,5 +1,5 @@
 $('.message a').click(function () {
-  $('form').animate({height: 'toggle', opacity: 'toggle'}, 'slow');
+  $('form').animate({height: 'toggle', opacity: 'toggle'}, 'slow')
 })
 console.log('Welcome to harbingers of Devastation')
 $('.register-form').on('submit', function (e) {

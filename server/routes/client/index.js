@@ -3,14 +3,13 @@ const express = require('express')
 const router = express.Router()
 
 router.get('/', (req, res) => {
-  let username
-  console.log(req.user)
+  let userData
   if (req.user && req.user.username) {
-    username = req.user.username
+    userData = req.user
   } else {
-    username = null
+    userData = null
   }
-  res.render('index', {username})
+  res.render('index', userData)
 }
 )
 router.get('/login', (req, res) => {

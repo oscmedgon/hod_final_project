@@ -3,11 +3,10 @@ extends layout/login
 block content
   .login-page
   .form
-    form.register-form(enctype='multipart/form-data' method='post')
-      input(type='text', data-username='username' placeholder='Nombre de usuario...' requered value='perico')
-      input(type='password', data-password='password' placeholder='Contraseña...' required value='perico')
-      input(type='email', data-email='email' placeholder='Correo elecrónico...' required value='perico@perico')
-      .g-recaptcha(data-sitekey='6LcHsDgUAAAAAH_3Q9ADAGGPrpgTIhQ0DXmw6tGd')
+    form.register-form(enctype='multipart/form-data' method='post' action='/login')
+      input(type='text', name='username' placeholder='Nombre de usuario...' requered value='perico')
+      input(type='password', name='password' placeholder='Contraseña...' required value='perico')
+      input(type='email', name='email' placeholder='Correo elecrónico...' required value='perico@perico')
       button Registrar usuario
       p.message
         | ¿Tienes ya una cuenta? 

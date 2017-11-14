@@ -2,6 +2,7 @@
   const express = require('express')
   const session = require('express-session')
   const bodyParser = require('body-parser')
+  const cookieParser = require('cookie-parser')
   const moment = require('moment')
   const passport = require('./config/passport')
   const path = require('path')

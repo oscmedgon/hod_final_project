@@ -56,11 +56,20 @@ block content
                 p
                   | Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
       aside.col-md-3.sidebar
-        .user-management 
-          h2 Bienvenido a Hod
-          p Inicia sesión con tu cuenta de Harbingers of Devastation para disfrutar la comunidad y ayudarla a crecer.
-          a(href="./login")
-            button.go-login Iniciar sesión
+        if username
+          .user-management
+            h2 Bienvenido a HoD 
+              span=username
+            p Hola que ase, esto es un texto de prueba
+            a(href="./logout")
+              button.go-login Cerrar sesión
+        else
+          .user-management
+            div
+              h2 Bienvenido a Hod
+              p Inicia sesión con tu cuenta de Harbingers of Devastation para disfrutar la comunidad y ayudarla a crecer.
+              a(href="./login")
+                button.go-login Iniciar sesión
         iframe(src='https://discordapp.com/widget?id=347411149458767873&theme=dark', height='500', width='100%', allowtransparency='true', frameborder='0')
         a.twitter-timeline(data-height='700', data-theme='dark', href='https://twitter.com/HarbsDev?ref_src=twsrc%5Etfw') Tweets by HarbsDev
         script(async='', src='https://platform.twitter.com/widgets.js', charset='utf-8')

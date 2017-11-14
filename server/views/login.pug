@@ -7,7 +7,8 @@ block content
       input(type='text', data-username='username' placeholder='Nombre de usuario...' requered value='perico')
       input(type='password', data-password='password' placeholder='Contraseña...' required value='perico')
       input(type='email', data-email='email' placeholder='Correo elecrónico...' required value='perico@perico')
-      button create
+      .g-recaptcha(data-sitekey='6LcHsDgUAAAAAH_3Q9ADAGGPrpgTIhQ0DXmw6tGd')
+      button Registrar usuario
       p.message
         | ¿Tienes ya una cuenta? 
         a(href='#') Inicia sesión

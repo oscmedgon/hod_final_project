@@ -6,7 +6,7 @@ const Article = require('./Article')
 
 const UserSchema = new Schema({
   username: String,
-  email: String,
+  email: { type: String, unique: true, dropDups: true },
   password: String,
   description: String,
   state: String,

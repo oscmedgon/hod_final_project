@@ -1,0 +1,15 @@
+extends layout/index
+
+block content
+  script
+    | console.log(article)
+  .col-md-offset-1.col-md-11.content
+    .row
+      section.col-md-9.articles
+        article
+          h2.article-title=article.title
+          .hot-article-container
+            .hot-article-img
+              img.img-responsive(src=article.image, alt='article-img')
+            .hot-article-body!=article.body
+      include layout/aside

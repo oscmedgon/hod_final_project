@@ -2,78 +2,24 @@ extends layout/index
 
 block content
   .col-md-offset-1.col-md-11.content
+    h2 Artículos 
+      span=sectionTitle
     .row
       section.col-md-9.articles
         article
           h2.article-title
-            | PRINCIPAL ARTICLE TITLE
+            a(href=`/article/`+featuredArticle._id)=featuredArticle.title
           .hot-article-container
             .hot-article-img
-              img.img-responsive(src='https://www.harbingersofdevastation.com/images/Bulletstorm.jpg', alt='article-img')
-            .hot-article-body
-              h3 No man, I don't eat pork
-              p
-                | Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+              img.img-responsive(src=featuredArticle.image, alt='article-img')
+            .hot-article-body!=featuredArticle.body
         .articles-section.col-md-12
-          article.article-body
-            h2.article-title
-              | SECONDARY ARTICLE TITLE
-            .row
-              div
-                img.img-responsive(src='https://www.harbingersofdevastation.com/images/uploads/lucioball.jpg', alt='article-img')
-              div
-                h3 No man, I don't eat pork
-                p
-                  | Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
-          article.article-body
-            h2.article-title
-              | SECONDARY ARTICLE TITLE
-            .row
-              div
-                img.img-responsive(src='https://www.harbingersofdevastation.com/images/uploads/lucioball.jpg', alt='article-img')
-              div
-                h3 No man, I don't eat pork
-                p
-                  | Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
-          article.article-body
-            h2.article-title
-              | SECONDARY ARTICLE TITLE
-            .row
-              div
-                img.img-responsive(src='https://www.harbingersofdevastation.com/images/uploads/lucioball.jpg', alt='article-img')
-              div
-                h3 No man, I don't eat pork
-                p
-                  | Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
-          article.article-body
-            h2.article-title
-              | SECONDARY ARTICLE TITLE
-            .row
-              div
-                img.img-responsive(src='https://www.harbingersofdevastation.com/images/uploads/lucioball.jpg', alt='article-img')
-              div
-                h3 No man, I don't eat pork
-                p
-                  | Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
-      aside.col-md-3.sidebar
-        if username
-          .user-management.row
-            h2 Bienvenido  
-              span=username
-            .col-md-3
-              img.img-responsive(src=avatar)
-            .col-md-9
-              p=description
-            p=date_of_creation
-            a(href="./logout")
-              button.go-login Cerrar sesión
-        else
-          .user-management
-            div
-              h2 Bienvenido a Hod
-              p Inicia sesión con tu cuenta de Harbingers of Devastation para disfrutar la comunidad y ayudarla a crecer.
-              a(href="./login")
-                button.go-login Iniciar sesión
-        iframe(src='https://discordapp.com/widget?id=347411149458767873&theme=dark', height='500', width='100%', allowtransparency='true', frameborder='0')
-        a.twitter-timeline(data-height='700', data-theme='dark', href='https://twitter.com/HarbsDev?ref_src=twsrc%5Etfw') Tweets by HarbsDev
-        script(async='', src='https://platform.twitter.com/widgets.js', charset='utf-8')
+          each article in articles
+            article.article-body
+              h2.article-title
+                a(href=`/article/`+featuredArticle._id)=featuredArticle.title
+              .row
+                div
+                  img.img-responsive(src=article.image, alt='article-img')
+                div!=article.body
+      include layout/aside

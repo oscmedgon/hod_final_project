@@ -27,7 +27,11 @@ body{
   border-bottom: 1px solid white;
   font-size: 20px;
 }
-.article-title:hover{
+.article-title a{
+  color: white;
+  text-decoration: none;
+}
+.article-title a:hover{
   color: #738BD7;
 }
 .articles .articles-section{

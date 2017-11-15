@@ -9,6 +9,7 @@ const ArticleSchema = new Schema({
   title: String,
   body: String,
   featured: Boolean,
+  category: String,
   date_of_creation: String
 
 }, { collection })

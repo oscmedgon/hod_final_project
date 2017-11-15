@@ -38,3 +38,41 @@ $('.login-form').on('submit', function (e) {
       toastr['error']('El usuario o la contraseña son incorrectos.')
     })
   })
+
+  $('.imageUpload').on('submit', function (e) {
+    e.preventDefault()
+    const id = $(this).data('id')
+    const data = {
+      avatar: e.target[0].value
+    }
+    const url = `/user/${id}/modify/avatar`
+    console.log(url)
+    const method = 'POST'
+    $.ajax({ url, method, data })
+      .then(response => {
+        toastr['success'](response.msg)
+        window.location.pathname = '/'
+      }, response => {
+        toastr['error']('Ha habido un problema al actualizar su avatar, intentelo de nuevo más tarde.')
+      })
+    })
+
+    $('.userDataModify').on('submit', function (e) {
+      e.preventDefault()
+      const id = $(this).data('id')
+      const data = {
+        name: e.target[0].value,
+        description: e.target[1].value,
+        website: e.target[2].value
+      }
+      const url = `/user/${id}/modify/data`
+      console.log(url)
+      const method = 'POST'
+      $.ajax({ url, method, data })
+        .then(response => {
+          toastr['success'](response.msg)
+          window.location.pathname = '/'
+        }, response => {
+          toastr['error']('Ha habido un problema al actualizar su información, es posible que el usuario ya esté en uso..')
+        })
+      })

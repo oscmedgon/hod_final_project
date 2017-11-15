@@ -18,6 +18,7 @@ body{
   background-image: url('../images/zwartevilt.png');
   background-color: #000;
   text-align: justify;
+  box-sizing: border-box;
 }
 .article-title{
   background-color: rgba(255,255,255,0.1);
@@ -79,6 +80,32 @@ margin-top: 50px;
 .hot-article-body p, .article-body p{
   font-size: 20px;
 }
+
+.profile-modify{
+  background-color: #232629;
+  margin-bottom: 10px;
+  padding: 50px;
+  border-radius: 5px;
+  color: white;
+}
+.profile-modify input{
+  color: black;
+  height: 50px;
+}
+
+.updateUserData, .updateAvatar{
+  background-color: #738BD7;
+  border: 0px;
+  height: 50px;
+  display: inline-block;
+}
+.imageUpload input{
+  width: 80%;
+}
+.imageUpload button{
+  width: 20%;
+}
+
 
 @media (min-width: 1000px) {
 

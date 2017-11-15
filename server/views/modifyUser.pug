@@ -1,0 +1,24 @@
+extends layout/index
+
+block content
+  h2 Modificar perfil
+  .col-md-offset-2.col-md-8.profile-modify
+    .row
+      .col-md-4
+        img.img-responsive(src=userData.avatar)
+        form.imageUpload(data-id=userData._id)
+          input(type='text' placeholder='Intoduce URL imagen' name='avatar' required) 
+          button.glyphicon.glyphicon-camera.updateAvatar(type='submit')
+      .col-md-8
+        form.userDataModify(data-id=userData._id)
+          span Name: 
+          input.form-control(type='text' placeholder='Nombre' name='name' value=userData.name)
+          br
+          span Descripción: 
+          input.form-control(type='textarea' placeholder='Describete a ti mismo' name=userData.description)
+          br
+          span Página web: 
+          input.form-control(type='text' placeholder='Introduce tu portal web favorito' name='website' value=userData.website)
+          br
+          button.updateUserData(type='submit') Actualizar perfil
+        

@@ -18,8 +18,7 @@
   width: 80%;
   margin: auto;
 }
-.user-management a button{
-  background-color: #738bd7;
+.default-button , .modify-button{
   border: 0px;
   border-radius: 5px;
   color: white;
@@ -27,4 +26,10 @@
   margin-bottom: 10px;
   font-size: 30px;
   font-weight: bolder;
+}
+.default-button{
+  background-color: #738bd7;
+}
+.modify-button{
+  background-color: orange; 
 }

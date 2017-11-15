@@ -10,7 +10,7 @@
   // Loading router
   const routesAuth = require('./routes/auth')
   const routesClient = require('./routes/client')
-  // const routesApi = require('./routes/api')
+  const routesApi = require('./routes/api')
 
   // Express inicialization
   const app = express()
@@ -36,6 +36,6 @@
   // Calling routes
   app.use(routesClient)
   app.use(routesAuth)
-  // app.use(routesApi)
+  app.use(routesApi)
 
   module.exports = app

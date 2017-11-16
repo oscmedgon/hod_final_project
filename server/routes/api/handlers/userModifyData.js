@@ -9,8 +9,10 @@ function userModifyData (req, res) {
     res.redirect('/')
   } else if (id == userData._id) {
     const data = req.body
-    if (data.website.slice(0, 8) !== 'https://' && data.website.slice(0, 7) !== 'http://'){
-      data.website = 'http://' + data.website
+    if (data.website){
+      if (data.website.slice(0, 8) !== 'https://' && data.website.slice(0, 7) !== 'http://'){
+        data.website = 'http://' + data.website
+      }
     }
     User.findByIdAndUpdate({_id: req.user._id}, data)
     .then(response => {

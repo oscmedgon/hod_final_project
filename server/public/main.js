@@ -48,6 +48,7 @@ $('.login-form').on('submit', function (e) {
     $.ajax({ url, method, data })
       .then(response => {
         toastr['success'](response.msg)
+        window.location.reload()
       }, response => {
         toastr['error']('Ha habido un problema al actualizar su avatar, intentelo de nuevo más tarde.')
       })
@@ -66,6 +67,7 @@ $('.login-form').on('submit', function (e) {
       $.ajax({ url, method, data })
         .then(response => {
           toastr['success'](response.msg)
+          window.location.reload()
         }, response => {
           toastr['error']('Ha habido un problema al actualizar su información, es posible que el usuario ya esté en uso..')
         })

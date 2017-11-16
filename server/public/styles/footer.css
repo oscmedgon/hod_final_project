@@ -34,12 +34,16 @@
   filter: grayscale(100%);
   -webkit-transition-duration: 0.5s; /* Safari */
   transition-duration: 0.5s;
+  width: 30px;
+  height: 30px;
 }
 .social-networks > a > img:hover{
   -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
   filter: grayscale(0%);
   -webkit-transition-duration: 0.5s; /* Safari */
   transition-duration: 0.5s;
+  width: 35px;
+  height: 35px;
 }
 
 @media (max-width: 767px) {

@@ -20,5 +20,7 @@ block content
           span Página web: 
           input.form-control(type='text' placeholder='Introduce tu portal web favorito' name='website' value=userData.website)
           br
-          button.updateUserData(type='submit') Actualizar perfil
+          button.updateUserData.user-button(type='submit') Actualizar perfil
+          a.user-button(href=`/user/`+ userData._id)
+            button.modify-button Ver perfil
         

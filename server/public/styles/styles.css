@@ -19,6 +19,10 @@ body{
   background-color: #000;
   text-align: justify;
   box-sizing: border-box;
+  min-height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0px;
 }
 .article-title{
   background-color: rgba(255,255,255,0.1);
@@ -68,6 +72,9 @@ margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
 }
+.hot-article-container .hot-article-body{
+  padding-left: 10px;
+}
 .hot-article-container .hot-article-img{
   width: 40%
 }
@@ -78,15 +85,21 @@ margin-top: 50px;
   width: 45%;
 }
 .hot-article-body p, .article-body p{
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .profile-modify{
   background-color: #232629;
   margin-bottom: 10px;
-  padding: 50px;
+  padding: 20px;
   border-radius: 5px;
   color: white;
+  height: 50vh;
+  margin-top: 19.4vh;
+  margin-bottom:19.4vh;
+}
+.profile-modify h2{
+  margin-top: 0px;
 }
 .profile-modify input{
   color: black;
@@ -105,6 +118,10 @@ margin-top: 50px;
 .imageUpload button{
   width: 20%;
 }
+.article-body .article-img{
+  margin: 0 auto;
+  max-width: 70%;
+}
 
 
 @media (min-width: 1000px) {
@@ -115,17 +132,26 @@ margin-top: 50px;
     width: 40%;
   }
 }
+  @media (max-width: 991px) {
+    .profile-modify{
+      height: auto;
+      margin-top: 100px;
+      margin-bottom:10px;
+    }
+}
 @media (max-width: 900px) {
+  .hot-article-container{
+    margin: 0 auto;
+  }
   .hot-article-container .hot-article-img{
-    width: 100%
+    width: 70%;
+    margin: 0 auto;
   }
   .hot-article-container .hot-article-body{
-    width: 100%
+    width: 90%;
+    margin: 0 auto;
   }
   .article-body{
     width: 90%;
   }
-}
-@media (max-width: 991px) {
-
 }

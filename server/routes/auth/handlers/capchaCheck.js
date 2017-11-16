@@ -6,7 +6,6 @@ const recaptcha = new ReCAPTCHA({
 })
 
 function capchaCheck (req, res, next) {
-  console.log(req.body)
   recaptcha.validateRequest(req)
 .then(function () {
   // validated and secure

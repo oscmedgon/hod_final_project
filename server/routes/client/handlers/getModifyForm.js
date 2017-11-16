@@ -10,7 +10,6 @@ function getModifyForm (req, res) {
   } else if (userData._id == id) {
     User.find({_id: id})
     .then(userData => {
-      console.log(userData)
       res.render('modifyUser', {userData: userData[0]})
     })
   } else {

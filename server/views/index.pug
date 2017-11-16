@@ -18,8 +18,7 @@ block content
             article.article-body
               h2.article-title
                 a(href=`/article/`+featuredArticle._id)=featuredArticle.title
-              .row
-                div
-                  img.img-responsive(src=article.image, alt='article-img')
-                div!=article.body
+              div.article-img
+                img.img-responsive(src=article.image, alt='article-img')
+              div!=article.body
       include layout/aside

@@ -3,22 +3,26 @@ aside.col-md-3.sidebar
     .user-management.row
       h2 Bienvenido  
         span=userData.name
-      .col-md-3
-        img.img-responsive(src=userData.avatar)
-      .col-md-9
+      .col-md-4.user-img
+        img.img-responsive.img-rounded(src=userData.avatar)
+      .col-md-8.user-description
         p=userData.description
-      p=userData.date_of_creation
-      a(href=`/user/`+ userData._id +`/modify`)
-        button.modify-button Modificar perfil
-      a(href="/logout")
-        button.default-button Cerrar sesión
+        if userData.website
+          p
+            a.user-website(href=userData.website target='_BLANK') Pagina web personal
+        p.date=userData.date_of_creation
+      div
+        a.user-button(href=`/user/`+ userData._id +`/modify`)
+          button.modify-button Modificar perfil
+        a.user-button(href="/logout")
+          button.default-button Cerrar sesión
   else
     .user-management
       div
         h2 Bienvenido a Hod
-        p Inicia sesión con tu cuenta de Harbingers of Devastation para disfrutar la comunidad y ayudarla a crecer.
+        p.user-description Inicia sesión con tu cuenta de Harbingers of Devastation para disfrutar la comunidad y ayudarla a crecer.
         a(href="/login")
-          button.default-button Iniciar sesión
+          button.user-button.default-button Iniciar sesión
   iframe(src='https://discordapp.com/widget?id=347411149458767873&theme=dark', height='500', width='100%', allowtransparency='true', frameborder='0')
   a.twitter-timeline(data-height='700', data-theme='dark', href='https://twitter.com/HarbsDev?ref_src=twsrc%5Etfw') Tweets by HarbsDev
   script(async='', src='https://platform.twitter.com/widgets.js', charset='utf-8')

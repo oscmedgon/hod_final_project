@@ -1,20 +1,24 @@
 .user-management{
+  margin: 0 auto;
   border-radius: 10px;
   background-color: #232629;
   margin-bottom: 10px;
+  padding-bottom: 10px;
+  text-align: left;
 }
 .user-management h2{
   text-align: center;
   padding-top: 10px;
 }
-.user-management p{
-  padding: 0px 30px;
-  font-size: 20px;
-  text-align: justify;
+.user-management .user-description{
+  padding: 0px 10px;
+  font-size: 15px;
 }
-.user-management a{
+.user-description p , .user-description a{
+  text-align: left;
+}
+.user-management .user-button{
   display: block;
-  text-align: center;
   width: 80%;
   margin: auto;
 }
@@ -31,5 +35,10 @@
   background-color: #738bd7;
 }
 .modify-button{
-  background-color: orange; 
+  background-color: orange;
+}
+.date{
+  padding-top: 10px;
+  font-weight: bolder;
+  text-align: center;
 }

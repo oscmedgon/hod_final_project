@@ -9,7 +9,6 @@ $('.register-form').on('submit', function (e) {
     password: e.target[1].value,
     email: e.target[2].value
   }
-  console.log(data)
   const url = '/api_register'
   const method = 'POST'
   $.ajax({ url, method, data })
@@ -27,7 +26,6 @@ $('.login-form').on('submit', function (e) {
     username: e.target[0].value,
     password: e.target[1].value
   }
-  console.log(data)
   const url = '/api_login'
   const method = 'POST'
   $.ajax({ url, method, data })
@@ -46,12 +44,10 @@ $('.login-form').on('submit', function (e) {
       avatar: e.target[0].value
     }
     const url = `/user/${id}/modify/avatar`
-    console.log(url)
     const method = 'POST'
     $.ajax({ url, method, data })
       .then(response => {
         toastr['success'](response.msg)
-        window.location.pathname = '/'
       }, response => {
         toastr['error']('Ha habido un problema al actualizar su avatar, intentelo de nuevo más tarde.')
       })
@@ -66,12 +62,10 @@ $('.login-form').on('submit', function (e) {
         website: e.target[2].value
       }
       const url = `/user/${id}/modify/data`
-      console.log(url)
       const method = 'POST'
       $.ajax({ url, method, data })
         .then(response => {
           toastr['success'](response.msg)
-          window.location.pathname = '/'
         }, response => {
           toastr['error']('Ha habido un problema al actualizar su información, es posible que el usuario ya esté en uso..')
         })

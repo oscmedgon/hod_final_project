@@ -8,7 +8,7 @@ function registerUser (req, res) {
   const description = 'No hay descripción para este usuario'
   const user_type = 0
   const date_of_creation = moment().format('DD-MM-YYYY, hh:mm:ss')
-  const website = 'Sin información del usuario'
+  const website = null
   const account = new User({username, name, email, description, avatar, user_type, date_of_creation, website})
 
   User.register(account, password, err => {

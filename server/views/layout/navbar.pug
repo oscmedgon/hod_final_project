@@ -28,14 +28,13 @@ nav.navbar.navbar-fixed-top.navbar-default
               a(href='/articles/sorteos') Sorteos
         li.dropdown
           a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
-            | Dropdown 
+            | Gestión de usuarios 
             span.caret
           ul.dropdown-menu
-            li.dropdown-link
-              a(href='#') Noticias
-            li.dropdown-link
-              a(href='#') Avisos
-            li.dropdown-link
-              a(href='#') Eventos
-            li.dropdown-link
-              a(href='#') Sorteos
+            if userData
+              li.dropdown-link
+                a(href=`/user/`+ userData._id +`/modify`) Modificar usuario
+            else
+              li.dropdown-link
+                a(href='/login') Accede o regístrate
+              

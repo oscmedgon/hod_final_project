@@ -23,7 +23,7 @@ body{
 
 .login-page {
   width: 700px;
-  padding: 8% 0 0;
+  padding: 100px 0 0;
   margin: auto;
 }
 .form {
@@ -31,7 +31,7 @@ body{
   z-index: 1;
   background: #323232;
   max-width: 700px;
-  margin: 0 auto 100px;
+  margin: 15.6vh auto 25.6vh;
   padding: 45px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
@@ -107,20 +107,25 @@ body{
 
 @media (max-width: 850px) {
   .form{
-    max-width: 400px;
+    max-width: 80%;
   }
   .form .login-page{
-    width: 500px;
+    width: 80%;
   }
 }
 @media (max-width: 700px) {
-  .login-page{
-    width: 90%;
-    margin: auto;
-  }
   .login-page .form{
     width: 100%;
-    margin: 0px;
+    margin: 13.8vh 0;
     max-width: none;
+  }
+}
+@media (max-width: 767px) {
+  .login-page{
+    padding-top: 0px;
+    width: 90%;
+  }
+  .login-page .form{
+    margin: 15vh auto;
   }
 }

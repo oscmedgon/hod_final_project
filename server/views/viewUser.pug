@@ -12,20 +12,22 @@ block content
             .user-body
               p Nombre: 
                 strong=profileData.name
+              p Descripción: 
+                strong=profileData.description
               p Fecha de registro: 
                 strong=profileData.date_of_creation
               p Correo electrónico: 
                 strong=profileData.email
               p Página web: 
-                strong=profileData.website
+                a(href=profileData.website target='_BLANK')
+                  strong=profileData.website
               p Usuario: 
                 if profileData.user_type === 0
                   strong básico
-                else
-                  if profileData.user_type === 1
-                    strong administrador
-                    if ownProfile
-                      a.user-button(href=`/user/`+ profileData._id +`/modify`)
-                        button.modify-button Modificar perfil
+                else if profileData.user_type === 1
+                  strong administrador
+                  if ownProfile
+                    a.user-button(href=`/user/`+ profileData._id +`/modify`)
+                      button.modify-button Modificar perfil
                 
       include layout/aside

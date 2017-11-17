@@ -144,11 +144,12 @@ a.view-profile-button {
   border: 0px;
   border-radius: 10px;
 }
-.date-of-publish{
+.article-information > p {
   font-size: 20px;
-  text-align: right;
+  text-align: left;
   margin-top: 20px;
 }
+
 .date-of-publish > span{
   font-weight: bolder;
 }

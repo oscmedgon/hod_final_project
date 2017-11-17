@@ -10,4 +10,6 @@ block content
             .hot-article-img
               img.img-responsive(src=article.image, alt='article-img')
             .hot-article-body!=article.body
+              p.date-of-publish Fecha de publicación: 
+                span=article.date_of_creation
       include layout/aside

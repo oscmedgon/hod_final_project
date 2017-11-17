@@ -76,10 +76,10 @@ margin-top: 50px;
   padding-left: 10px;
 }
 .hot-article-container .hot-article-img{
-  width: 40%
+  width: 30%
 }
 .hot-article-container .hot-article-body{
-  width: 60%
+  width: 70%
 }
 .article-body{
   width: 45%;
@@ -143,6 +143,14 @@ a.view-profile-button {
   text-decoration: none;
   border: 0px;
   border-radius: 10px;
+}
+.date-of-publish{
+  font-size: 20px;
+  text-align: right;
+  margin-top: 20px;
+}
+.date-of-publish > span{
+  font-weight: bolder;
 }
 
 @media (min-width: 1000px) {

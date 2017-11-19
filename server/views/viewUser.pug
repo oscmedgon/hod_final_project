@@ -1,13 +1,13 @@
-extends layout/index
+extends layout/login
 
 block content
   .col-md-offset-1.col-md-11.content
     .row
-      section.col-md-9.articles
+      section.col-md-11.user-profile
         article
-          h2.article-title=profileData.name
+          h2.user-title=profileData.name
           .row
-            .user-container.col-md-4
+            .user-container.col-md-3
               img.img-responsive(src=profileData.avatar, alt='article-img')
             .user-body
               p Nombre: 
@@ -26,8 +26,6 @@ block content
                   strong básico
                 else if profileData.user_type === 1
                   strong administrador
-                  if ownProfile
-                    a.user-button(href=`/user/`+ profileData._id +`/modify`)
-                      button.modify-button Modificar perfil
-                
-      include layout/aside
+              if ownProfile
+                a.user-button(href=`/user/`+ profileData._id +`/modify`)
+                  button.modify-button Modificar perfil

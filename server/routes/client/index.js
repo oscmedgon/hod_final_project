@@ -17,7 +17,7 @@ router.get('/login', (req, res) => {
   if (req.user) {
     res.redirect('/')
   } else {
-    res.render('login')
+    res.render('login', {title: 'Iniciar sesión'})
   }
 })
 

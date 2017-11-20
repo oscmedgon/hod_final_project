@@ -8,8 +8,7 @@ function getUserProfile (req, res) {
   if (!userData) {
     User.find({_id: id})
     .then(profileData => User.populate(profileData, {path: 'articles'}, function (err, articles) {
-      console.log(profileData)
-      res.render('viewUser', {profileData: profileData[0], userData: userData, ownProfile: false})
+      res.render('viewUser', {title: `${profileData[0].name}'s profile`, profileData: profileData[0], userData: userData, ownProfile: false})
     })
     )
   // Checking if the user it's visiting his own profile
@@ -17,7 +16,7 @@ function getUserProfile (req, res) {
     User.find({_id: id})
     .then(profileData => User.populate(profileData, {path: 'articles'}, function (err, articles) {
       console.log(profileData)
-      res.render('viewUser', {profileData: profileData[0], userData: userData, ownProfile: true})
+      res.render('viewUser', {title: `${profileData[0].name}'s profile`, profileData: profileData[0], userData: userData, ownProfile: true})
     })
     )
   // User it's logged but it's visiting another profile
@@ -25,7 +24,7 @@ function getUserProfile (req, res) {
     User.find({_id: id})
     .then(profileData => User.populate(profileData, {path: 'articles'}, function (err, articles) {
       console.log(profileData)
-      res.render('viewUser', {profileData: profileData[0], userData: userData, ownProfile: false})
+      res.render('viewUser', {title: `${profileData[0].name}'s profile`, profileData: profileData[0], userData: userData, ownProfile: false})
     })
     )
   }

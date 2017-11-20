@@ -11,7 +11,7 @@ function getModifyForm (req, res) {
   } else if (userData._id == id) {
     User.find({_id: id})
     .then(userData => {
-      res.render('modifyUser', {userData: userData[0]})
+      res.render('modifyUser', {title: `${userData[0].name} modify`, userData: userData[0]})
     })
   } else {
     console.log('Unautorized to modify user, you are not that user')

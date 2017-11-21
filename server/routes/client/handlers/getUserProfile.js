@@ -15,7 +15,6 @@ function getUserProfile (req, res) {
   } else if (userData._id == id) {
     User.find({_id: id})
     .then(profileData => User.populate(profileData, {path: 'articles'}, function (err, articles) {
-      console.log(profileData)
       res.render('viewUser', {title: `${profileData[0].name}'s profile`, profileData: profileData[0], userData: userData, ownProfile: true})
     })
     )
@@ -23,7 +22,6 @@ function getUserProfile (req, res) {
   } else {
     User.find({_id: id})
     .then(profileData => User.populate(profileData, {path: 'articles'}, function (err, articles) {
-      console.log(profileData)
       res.render('viewUser', {title: `${profileData[0].name}'s profile`, profileData: profileData[0], userData: userData, ownProfile: false})
     })
     )

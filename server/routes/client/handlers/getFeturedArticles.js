@@ -8,7 +8,6 @@ function getFeturedArticles (req, res) {
     .limit(5)
     .then(articles => User.populate(articles, {path: 'author'}, function (err, articles) {
       if (err) res.redirect('/')
-      console.log(articles)
       res.render('index', {sectionTitle: 'destacados', userData, featuredArticle: articles[0], articles: articles.slice(1)})
     })
   )

@@ -1,10 +1,26 @@
 const express = require('express')
 const userModifyAvatar = require('./handlers/userModifyAvatar')
 const userModifyData = require('./handlers/userModifyData')
+const getUsersAllUsers = require('./handlers/getUsersAllUsers')
+const getUsersAllAdministrators = require('./handlers/getUsersAllAdministrators')
+const getAllArticles = require('./handlers/getAllArticles')
+const getFeaturedArticles = require('./handlers/getFeaturedArticles')
+const getAtriclesByCategory = require('./handlers/getAtriclesByCategory')
+const userDashboard = require('./handlers/userDashboard')
+const articleDashboard = require('./handlers/articleDashboard')
+const newArticle = require('./handlers/newArticle')
 
 const router = express.Router()
 
 router.post('/user/:id/modify/avatar', userModifyAvatar)
 router.post('/user/:id/modify/data', userModifyData)
+router.get('/api/users/', getUsersAllUsers)
+router.get('/api/users/admin', getUsersAllAdministrators)
+router.get('/api/articles/', getAllArticles)
+router.get('/api/articles/featured', getFeaturedArticles)
+router.get('/api/articles/:category', getAtriclesByCategory)
+router.get('/api/dashboard/user', userDashboard)
+router.get('/api/dashboard/article', articleDashboard)
+router.post('/api/article/new', newArticle)
 
 module.exports = router

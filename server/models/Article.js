@@ -10,7 +10,8 @@ const ArticleSchema = new Schema({
   body: String,
   featured: Boolean,
   category: String,
-  date_of_creation: String
+  date_of_creation: Number,
+  date_pretty: String
 
 }, { collection })
 

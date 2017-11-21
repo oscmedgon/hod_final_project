@@ -11,5 +11,5 @@ block content
               img.img-responsive(src=article.image, alt='article-img')
             .hot-article-body!=article.body
               p.date-of-publish Fecha de publicación: 
-                span=article.date_of_creation
+                span=article.date_pretty
       include layout/aside

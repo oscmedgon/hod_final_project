@@ -17,7 +17,7 @@ block content
                 p
                   a(href=`/user/`+featuredArticle.author._id)=featuredArticle.author.name
                 p.date-of-publish Fecha de publicación: 
-                  span=featuredArticle.date_of_creation
+                  span=featuredArticle.date_pretty
         .articles-section.col-md-12
           each article in articles
             article.article-body
@@ -30,5 +30,5 @@ block content
                 p Autor: 
                   a(href=`/user/`+article.author._id)=article.author.name
                 p.date-of-publish Fecha de publicación: 
-                  span=article.date_of_creation
+                  span=article.date_pretty
       include layout/aside

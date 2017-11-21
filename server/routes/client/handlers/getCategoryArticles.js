@@ -6,6 +6,7 @@ function getCategoryArticles (req, res) {
   const userData = getUserData(req.user)
   const {category} = req.params
   Articles.find({category: category})
+  .sort({date_of_creation: -1})
   .limit(5)
   .then(articles => User.populate(articles, {path: 'author'}, function (err, articles) {
     if (err) res.redirect('/')

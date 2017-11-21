@@ -4,6 +4,7 @@ const getUserData = require('./getUserData')
 function getFeturedArticles (req, res) {
   const userData = getUserData(req.user)
   Articles.find({featured: true})
+    .sort({date_of_creation: -1})
     .limit(5)
     .then(articles => User.populate(articles, {path: 'author'}, function (err, articles) {
       if (err) res.redirect('/')

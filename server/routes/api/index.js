@@ -11,6 +11,7 @@ const articleDashboard = require('./handlers/articleDashboard')
 const newArticle = require('./handlers/newArticle')
 const removeArticle = require('./handlers/removeArticle')
 const getArticleToModify = require('./handlers/getArticleToModify')
+const modifyArticle = require('./handlers/modifyArticle')
 
 const router = express.Router()
 
@@ -26,5 +27,6 @@ router.post('/api/article/new', newArticle)
 router.post('/user/:id/modify/avatar', userModifyAvatar)
 router.post('/user/:id/modify/data', userModifyData)
 router.delete('/api/article/:id/remove', removeArticle)
+router.put('/api/article/:id/modify', modifyArticle)
 
 module.exports = router

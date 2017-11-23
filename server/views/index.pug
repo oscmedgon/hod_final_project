@@ -6,29 +6,35 @@ block content
       span=sectionTitle
     .row
       section.col-md-9.articles
-        article
-          h2.article-title
-            a(href=`/article/`+featuredArticle._id)=featuredArticle.title
-          .hot-article-container
-            .hot-article-img
-              img.img-responsive(src=featuredArticle.image, alt='article-img')
-            .hot-article-body!=featuredArticle.body
-              .article-information
-                p
-                  a(href=`/user/`+featuredArticle.author._id)=featuredArticle.author.name
-                p.date-of-publish Fecha de publicación: 
-                  span=featuredArticle.date_pretty
-        .articles-section.col-md-12
-          each article in articles
-            article.article-body
-              h2.article-title
-                a(href=`/article/`+article._id)=article.title
-              div.article-img
-                img.img-responsive(src=article.image, alt='article-img')
-              div!=article.body
-              .article-information
-                p Autor: 
-                  a(href=`/user/`+article.author._id)=article.author.name
-                p.date-of-publish Fecha de publicación: 
-                  span=article.date_pretty
+        if featuredArticle
+          article
+            h2.article-title
+              a(href=`/article/`+featuredArticle._id)=featuredArticle.title
+            .hot-article-container
+              .hot-article-img
+                img.img-responsive(src=featuredArticle.image, alt='article-img')
+              .hot-article-body!=featuredArticle.body
+                .article-information
+                  p
+                    a(href=`/user/`+featuredArticle.author._id)=featuredArticle.author.name
+                  p.date-of-publish Fecha de publicación: 
+                    span=featuredArticle.date_pretty
+          .articles-section.col-md-12
+            each article in articles
+              article.article-body
+                h2.article-title
+                  a(href=`/article/`+article._id)=article.title
+                div.article-img
+                  img.img-responsive(src=article.image, alt='article-img')
+                div!=article.body
+                .article-information
+                  p Autor: 
+                    a(href=`/user/`+article.author._id)=article.author.name
+                  p.date-of-publish Fecha de publicación: 
+                    span=article.date_pretty
+          if articles.length == 4
+            a(href=baseUrl+page)
+              button Siguiente página
+        else
+          h2 No hay más artículos que mostrar
       include layout/aside

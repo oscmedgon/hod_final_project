@@ -1,9 +1,4 @@
-// const jwt = require('jsonwebtoken')
-// const { SECRET } = process.env
-
 function userLogin (req, res) {
-  // const {username} = req.body
-  // const token = jwt.sign({ username }, SECRET)
   if (req.user) {
     res.status(200).json({msg: 'Login success'})
   } else {

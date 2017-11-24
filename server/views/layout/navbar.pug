@@ -36,9 +36,9 @@ nav.navbar.navbar-fixed-top.navbar-default
                 a(href=`/user/`+ userData._id +`/modify`) Modificar usuario
               li.dropdown-link
                 a(href="/logout") Cerrar sesión
-                
-                
-                
+              if userData.user_type === 1
+                li.dropdown-link
+                  a(href="/administration") Administración
             else
               li.dropdown-link
                 a(href='/login') Accede o regístrate

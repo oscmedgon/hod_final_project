@@ -97,6 +97,30 @@ margin-top: 50px;
 .date-of-publish > span{
   font-weight: bolder;
 }
+.pagination{
+  width: 100%;
+  position: relative;
+  margin-bottom: 100px;
+}
+.pagination > .prev-page {
+  position: absolute;
+  left: 30px;
+}
+.pagination > .next-page {
+  position: absolute;
+  right: 30px;
+}
+.page-button{
+  background-color: #738bd7;
+  color: white;
+  padding: 15px;
+  border-radius: 30px;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.page-button:hover{
+  color: orange;
+}
 
 @media (min-width: 1000px) {
 

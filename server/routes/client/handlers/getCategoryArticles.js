@@ -14,7 +14,7 @@ function getCategoryArticles (req, res) {
   .skip(skip)
   .then(articles => User.populate(articles, {path: 'author'}, function (err, articles) {
     if (err) res.redirect('/')
-    res.render('index', {baseUrl: `/articles/${category}?page=`, page: page + 1, sectionTitle: articles[0].category, userData, featuredArticle: articles[0], articles: articles.slice(1)})
+    res.render('index', {baseUrl: `/articles/${category}?page=`, page: page, sectionTitle: articles[0].category, userData, featuredArticle: articles[0], articles: articles.slice(1)})
   })
   )
 }

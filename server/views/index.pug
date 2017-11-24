@@ -32,9 +32,13 @@ block content
                     a(href=`/user/`+article.author._id)=article.author.name
                   p.date-of-publish Fecha de publicación: 
                     span=article.date_pretty
-          if articles.length == 4
-            a(href=baseUrl+page)
-              button Siguiente página
+          .pagination
+            if page > 1
+              a(href=baseUrl+(page-1)).prev-page
+                i.glyphicon.glyphicon-chevron-left.page-button
+            if articles.length == 4
+              a(href=baseUrl+(page+1)).next-page
+                i.glyphicon.glyphicon-chevron-right.page-button
         else
           h2 No hay más artículos que mostrar
       include layout/aside

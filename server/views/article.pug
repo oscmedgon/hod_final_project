@@ -6,10 +6,10 @@ block content
       section.col-md-9.articles
         article
           h2.article-title=article.title
-          .hot-article-container
-            .hot-article-img
+          .full-article-container
+            .full-article-img
               img.img-responsive(src=article.image, alt='article-img')
-            .hot-article-body!=article.body
+            .full-article-body!=article.body
               p.date-of-publish Fecha de publicación: 
                 span=article.date_pretty
       include layout/aside

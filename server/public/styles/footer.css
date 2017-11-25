@@ -41,9 +41,7 @@
   -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
   filter: grayscale(0%);
   -webkit-transition-duration: 0.5s; /* Safari */
-  transition-duration: 0.5s;
-  width: 35px;
-  height: 35px;
+  transition-duration: 0.3s;
 }
 
 @media (max-width: 767px) {

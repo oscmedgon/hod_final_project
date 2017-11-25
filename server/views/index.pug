@@ -14,6 +14,9 @@ block content
               .hot-article-img
                 img.img-responsive(src=featuredArticle.image, alt='article-img')
               .hot-article-body!=featuredArticle.body
+                .read-more
+                  a(href=`/article/`+featuredArticle._id)
+                    button.read-more-button Leer más
                 .article-information
                   p
                     a(href=`/user/`+featuredArticle.author._id)=featuredArticle.author.name
@@ -27,6 +30,9 @@ block content
                 div.article-img
                   img.img-responsive(src=article.image, alt='article-img')
                 div!=article.body
+                  .read-more
+                    a(href=`/article/`+featuredArticle._id)
+                      button.read-more-button Leer más
                 .article-information
                   p Autor: 
                     a(href=`/user/`+article.author._id)=article.author.name

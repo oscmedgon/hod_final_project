@@ -1,5 +1,7 @@
+const path = require('path')
+
 function getArticle (req, res) {
-  res.send('../../../public/administration/index.html')
+  res.sendFile(path.join(__dirname, '/index.html'))
 }
 
 module.exports = getArticle

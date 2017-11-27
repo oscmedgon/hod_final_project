@@ -5,7 +5,7 @@ console.log('Welcome to harbingers of Devastation')
 $('.register-form').on('submit', function (e) {
   e.preventDefault()
   const data = {
-    username: e.target[0].value,
+    username: e.target[0].value.toLowerCase(),
     password: e.target[1].value,
     email: e.target[2].value
   }
@@ -23,7 +23,7 @@ $('.register-form').on('submit', function (e) {
 $('.login-form').on('submit', function (e) {
   e.preventDefault()
   const data = {
-    username: e.target[0].value,
+    username: e.target[0].value.toLowerCase(),
     password: e.target[1].value
   }
   const url = '/api_login'

@@ -6,14 +6,21 @@ function userDashboard (req, res) {
   .then(users => {
     const json = {}
     json.recentUsers = users.filter(user => {
-      let timeSinzeRegistration = moment(user.date_of_creation, 'DD-MM-YYYY, hh:mm:ss').fromNow().split(' ')[0]
-      if (timeSinzeRegistration === 'a') timeSinzeRegistration = 1
-      return (parseInt(timeSinzeRegistration) <= 7)
+      let timeSinzeRegistration = moment(user.date_of_creation, 'DD-MM-YYYY, HH:mm:ss').fromNow().split(' ')
+      console.log(timeSinzeRegistration)
+      if (timeSinzeRegistration.includes('seconds') || timeSinzeRegistration.includes('minutes') || timeSinzeRegistration.includes('hour') || timeSinzeRegistration.includes('hours')) {
+        return true
+      } else if (timeSinzeRegistration.includes('day')) {
+        if (timeSinzeRegistration[0] === 'a') {
+          return true
+        }
+      } else if (timeSinzeRegistration.includes('days')) {
+        return (parseInt(timeSinzeRegistration[0]) <= 7)
+      }
     }).length
     json.totalUsers = users.length
     json.totalAdmins = (users.filter(user => user.user_type === 1)).length
     json.userList = users
-    console.log(json)
     res.status(200).json(json)
   })
 }

@@ -1,5 +1,5 @@
-[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](http://standardjs.com/)
 # HoD News page about gaming
+[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](http://standardjs.com/)
 ![Skylab](https://github.com/Iggy-Codes/logo-images/blob/master/logos/skylab-56.png)
 ## Backend technologies
 [![npm](https://github.com/oscmedgon/logo-images/blob/master/logos/npm.png)](https://www.npmjs.com)

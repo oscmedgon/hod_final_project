@@ -11,8 +11,20 @@ const userDashboard = require('./handlers/userDashboard')
 const articleDashboard = require('./handlers/articleDashboard')
 const newArticle = require('./handlers/newArticle')
 const removeArticle = require('./handlers/removeArticle')
+
+// Requiring dependencies
+const path = require('path')
 const getArticleToModify = require('./handlers/getArticleToModify')
 const modifyArticle = require('./handlers/modifyArticle')
+const multer = require('multer')
+
+// Loading cloudinary configuration
+const uploadCloudinary = require('./handlers/uploadCloudinary')
+const uploadFolderPath = path.join(global.__base, process.env.UPLOAD_FOLDER)
+console.log(uploadFolderPath)
+const upload = multer({
+  dest: uploadFolderPath
+})
 
 const router = express.Router()
 
@@ -26,9 +38,13 @@ router.get('/api/dashboard/user', userDashboard)
 router.get('/api/dashboard/article', articleDashboard)
 router.get('/api/article/:id', getArticleToModify)
 router.post('/api/article/new', newArticle)
-router.post('/user/:id/modify/avatar', userModifyAvatar)
+router.post('/user/:id/modify/avatar', upload.single('file'), uploadCloudinary, userModifyAvatar)
 router.post('/user/:id/modify/data', userModifyData)
 router.delete('/api/article/:id/remove', removeArticle)
 router.put('/api/article/:id/modify', modifyArticle)
+router.post('/api/upload', upload.single('file'), uploadCloudinary, (req, res) => {
+  const { imageLink } = req
+  res.status(200).json({ imageLink })
+})
 
 module.exports = router

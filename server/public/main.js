@@ -40,19 +40,19 @@ $('.login-form').on('submit', function (e) {
   $('.imageUpload').on('submit', function (e) {
     e.preventDefault()
     const id = $(this).data('id')
-    const data = {
-      avatar: e.target[0].value
-    }
+    let data = new FormData()
+    let file = e.target[0].files[0]
+    // add the files to formData object for the data payload
+    data.append('file', file)
     const url = `/user/${id}/modify/avatar`
-    const method = 'POST'
-    $.ajax({ url, method, data })
+    axios.post(url, data)
       .then(response => {
-        toastr['success'](response.msg)
+        toastr['success']('Avatar modificado correctamente')
         window.location.reload()
       }, response => {
         toastr['error']('Ha habido un problema al actualizar su avatar, intentelo de nuevo más tarde.')
       })
-    })
+  })
 
     $('.userDataModify').on('submit', function (e) {
       e.preventDefault()
@@ -72,3 +72,9 @@ $('.login-form').on('submit', function (e) {
           toastr['error']('Ha habido un problema al actualizar su información, es posible que el usuario ya esté en uso..')
         })
       })
+  $('#file').change(function () {
+    var filepath = this.value
+    var m = filepath.match(/([^\/\\]+)$/)
+    var filename = m[1]
+    $('#file-upload-label').text(filename)
+  })

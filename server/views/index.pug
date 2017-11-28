@@ -18,7 +18,7 @@ block content
                   a(href=`/article/`+featuredArticle._id)
                     button.read-more-button Leer más
                 .article-information
-                  p
+                  p Autor: 
                     a(href=`/user/`+featuredArticle.author._id)=featuredArticle.author.name
                   p.date-of-publish Fecha de publicación: 
                     span=featuredArticle.date_pretty

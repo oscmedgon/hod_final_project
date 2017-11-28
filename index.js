@@ -2,6 +2,9 @@
 require('dotenv').load()
 const {URL_DB} = process.env
 
+// Setting global base url
+global.__base = __dirname
+
 // Setting server port
 const port = process.env.PORT || 8080
 

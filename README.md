@@ -18,4 +18,41 @@
 [![Reactjs](https://video-react.js.org/assets/logo.png)](https://reactjs.org/)
 
 
-## Pre-requisites and how to install it(COMING SOON)
+## Pre-requisites and how to install it
+The first step if you want to use this project it's create a mongo database you can do it online [!Mlab](https://mlab.com), it's free.
+Then you have to import my test database located in the project folder */prerequisites* you can do it with this command (You have to import collections one by one there is not a magical command to do it):
+
+```
+mongoimport -h <YOUR-DB-URL>.mlab.com:57245 -d hod-db -c <DB-COLLECTION(users & articles)> -u <YOUR-DB-USER> -p <YOUR-DB-PASSWORD> --file <PATH-TO-/-INPUT-FILE.json>
+```
+You did it, now configure enviroment create a new file in the project root called *.env* it musth have all the following lines (Modify them to match with your needs):
+```
+URL_DB=mongodb://<YOUR-DB-USER>:<YOUR-DB-PASSWORD>@ds<YOUR-DB-URL>.mlab.com:57245/YOUR-DB-NAME
+SECRET=<YOUR-SUPER-SECRET>
+UPLOAD_FOLDER=uploads
+#
+# THE FOLLOWING SECTION IT'S TO CONFIGURE CLOUDINARY TO STORAGE ALL IMAGE UPLOADS CREATE AN ACOUNT BEFORE CONTINUE
+#
+CLOUD_NAME=<YOUR-CLOUD-NAME>
+API_KEY=<YOUR-API-KEY>
+API_SECRET=<YOUR-API-SECRET>
+
+```
+# If you are reading this..., You rules.
+You are ready to get started, just run this command at your project root(I'm not going to hack your computer or anything like that, just install node dependencies and run server in developement state):
+```
+npm run superStart
+```
+```
+.then(return 'Open your brouser and go to http://localhost:8080')
+```
+
+Now you have your server runing and working, if not mail me or leave me a comment.
+if you want to modify administration site you have to clone this repo:
+[!hod-administration-site](https://github.com/oscmedgon/hod-administration-page-react)
+After clone run this command at the project root:
+```
+npm start
+```
+It will open a live server in the url localhost:3000, navigate to localhost:3000/administration
+For more information about create-react-app go to the oficial repo [!here](https://github.com/facebookincubator/create-react-app)

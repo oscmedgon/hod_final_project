@@ -19,6 +19,13 @@
 
 
 ## Pre-requisites and how to install it
+### IMPORTANT! for every test you can use my test administrator
+```
+Super Secure in a production build remove this user
+username: 1
+password: 1
+```
+
 The first step if you want to use this project it's create a mongo database you can do it online [!Mlab](https://mlab.com), it's free.
 Then you have to import my test database located in the project folder */prerequisites* you can do it with this command (You have to import collections one by one there is not a magical command to do it):
 

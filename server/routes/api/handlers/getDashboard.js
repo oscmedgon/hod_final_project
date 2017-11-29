@@ -16,7 +16,6 @@ function getUserDashboard () {
     data.push({title: 'Total admin users', body: response.filter(user => user.user_type === 1).length})
     const recentUsers = response.filter(user => {
       let timeSinzeRegistration = moment(user.date_of_creation, 'DD-MM-YYYY, HH:mm:ss').fromNow().split(' ')
-      console.log(timeSinzeRegistration)
       if (timeSinzeRegistration.includes('seconds') || timeSinzeRegistration.includes('minutes') || timeSinzeRegistration.includes('hour') || timeSinzeRegistration.includes('hours')) {
         return true
       } else if (timeSinzeRegistration.includes('day')) {

@@ -5,12 +5,11 @@ function userModifyData (req, res) {
   const userData = getUserData(req.user)
   const {id} = req.params
   if (!userData) {
-    console.log('Unautorized to modify user, you are not that user')
     res.redirect('/')
   } else if (id == userData._id) {
     const data = req.body
-    if (data.website){
-      if (data.website.slice(0, 8) !== 'https://' && data.website.slice(0, 7) !== 'http://'){
+    if (data.website) {
+      if (data.website.slice(0, 8) !== 'https://' && data.website.slice(0, 7) !== 'http://') {
         data.website = 'http://' + data.website
       }
     }
@@ -21,7 +20,6 @@ function userModifyData (req, res) {
       res.status(500).send({msg: 'Ha habido un problema al actualizar su avatar, intentelo de nuevo más tarde'})
     })
   } else {
-    console.log('Unautorized to modify user, you are not that user')
     res.redirect('/')
   }
 }

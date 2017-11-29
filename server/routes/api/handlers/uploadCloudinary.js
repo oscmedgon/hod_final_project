@@ -16,7 +16,7 @@ function uploadCloudinary (req, res, next) {
       if (url) {
         req.imageLink = url
         // delete files inside folder but not the folder itself
-         del.sync([`${uploadFolderPath}/**`, `!${uploadFolderPath}`]);
+        del.sync([`${uploadFolderPath}/**`, `!${uploadFolderPath}`]);
         next()
       } else {
         res.status(404).send('Oh uh, something went wrong')

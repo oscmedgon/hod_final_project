@@ -5,7 +5,6 @@ function userModifyAvatar (req, res) {
   const {imageLink} = req
   const userData = getUserData(req.user)
   if (!userData) {
-    console.log('Unautorized to modify user, you are not that user')
     res.redirect('/')
   } else if (req.params.id == req.user._id) {
     const data = {avatar: imageLink}
@@ -16,7 +15,6 @@ function userModifyAvatar (req, res) {
       res.status(500).send({msg: 'Ha habido un problema al actualizar su avatar, intentelo de nuevo más tarde'})
     })
   } else {
-    console.log('Unautorized to modify user, you are not that user')
     res.redirect('/')
   }
 }

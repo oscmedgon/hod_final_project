@@ -7,7 +7,6 @@ function userDashboard (req, res) {
     const json = {}
     json.recentUsers = users.filter(user => {
       let timeSinzeRegistration = moment(user.date_of_creation, 'DD-MM-YYYY, HH:mm:ss').fromNow().split(' ')
-      console.log(timeSinzeRegistration)
       if (timeSinzeRegistration.includes('seconds') || timeSinzeRegistration.includes('minutes') || timeSinzeRegistration.includes('hour') || timeSinzeRegistration.includes('hours')) {
         return true
       } else if (timeSinzeRegistration.includes('day')) {

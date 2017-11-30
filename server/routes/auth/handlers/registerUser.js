@@ -7,8 +7,7 @@ function registerUser (req, res) {
   const avatar = 'http://res.cloudinary.com/dm303fk5u/image/upload/v1511966508/silueta_fondo_transparente-min_yjgaol.png'
   const description = ''
   const user_type = 0
-  const date_of_creation = Date.now()
-  const date_pretty = moment().format('DD-MM-YYYY, HH:mm:ss')
+  const date_of_creation = moment().format('DD-MM-YYYY, HH:mm:ss')
   const website = null
   const account = new User({username, name, email, description, avatar, user_type, date_of_creation, website})
 

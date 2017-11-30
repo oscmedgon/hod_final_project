@@ -15,6 +15,21 @@ $('.register-form').on('submit', function (e) {
     .then(response => {
       toastr['success'](response.msg)
       window.location.reload()
+    }
+      toastr['success'](response.msg)
+      window.location.reload()
+    }
+      toastr['success'](response.msg)
+      window.location.reload()
+    }
+      toastr['success'](response.msg)
+      window.location.reload()
+    }
+      toastr['success'](response.msg)
+      window.location.reload()
+    }
+      toastr['success'](response.msg)
+      window.location.reload()
     }, response => {
       toastr['error']('Error al crear el usuario, es posible que el usuario ya exista.')
     })

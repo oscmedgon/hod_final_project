@@ -63,3 +63,22 @@ npm start
 ```
 It will open a live server in the url localhost:3000, navigate to localhost:3000/administration
 For more information about create-react-app go to the oficial repo [!here](https://github.com/facebookincubator/create-react-app)
+
+# BUILDING CREATE REACT APP
+You are almost ready to upload your page to production, but before that you have to create a production build of your react app (Administration page).
+To build your app firs stop the live server with keyboard keys:
+```
+Ctrl + c
+```
+And then run this command to create a stable build:
+```
+npm run build
+```
+This command will create a bundle of your aplication to the build folder then run this command to update the administration page served by your nodejs server:
+```
+cd build
+cp -R * /PATH-TO/YOUR/NODE-SERVER/server/public
+cd /PATH-TO/YOUR/NODE-SERVER/server/public
+mv index.html administration
+```
+Your server it's ready to serve your administration page don't forget to remove your user "1" from database before upload your site to production.

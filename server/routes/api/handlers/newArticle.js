@@ -7,7 +7,7 @@ function newArticle (req, res) {
   const date_of_creation = Date.now()
   const date_pretty = moment().format('DD-MM-YYYY, HH:mm:ss')
   const author = req.user._id
-  const image = req.body.image || 'https://thumb1.shutterstock.com/display_pic_with_logo/1072949/278165597/stock-photo-stamp-default-in-red-over-white-background-278165597.jpg'
+  const image = req.body.image || 'http://res.cloudinary.com/dm303fk5u/image/upload/v1511966508/silueta_fondo_transparente-min_yjgaol.png'
   const article = new Article({title, category, featured, body, date_of_creation, date_pretty, author, image})
   const {_id} = article
   article.save(article, err => {

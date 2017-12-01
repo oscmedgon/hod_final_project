@@ -20,6 +20,8 @@
 
 ## Pre-requisites and how to install it
 ### IMPORTANT! for every test you can use my test administrator
+
+### You need to have installed [NodeJS](https://nodejs.org/) with [npm](https://www.npmjs.com/) and [MongoDB](https://www.mongodb.com/)
 ```
 Super Secure in a production build remove this user
 username: 1
@@ -30,11 +32,11 @@ The first step if you want to use this project it's create a mongo database you 
 Then you have to import my test database located in the project folder */prerequisites* you can do it with this command (You have to import collections one by one there is not a magical command to do it):
 
 ```
-mongoimport -h <YOUR-DB-URL>.mlab.com:57245 -d hod-db -c <DB-COLLECTION(users & articles)> -u <YOUR-DB-USER> -p <YOUR-DB-PASSWORD> --file <PATH-TO-/-INPUT-FILE.json>
+mongoimport -h <YOUR-DB-URL>.mlab.com:<YOUR-DB-PORT> -d <YOUR-DB-NAME> -c <DB-COLLECTION(users & articles)> -u <YOUR-DB-USER> -p <YOUR-DB-PASSWORD> --file <PATH-TO-/-INPUT-FILE.json>
 ```
 You did it, now configure enviroment create a new file in the project root called *.env* it musth have all the following lines (Modify them to match with your needs):
 ```
-URL_DB=mongodb://<YOUR-DB-USER>:<YOUR-DB-PASSWORD>@ds<YOUR-DB-URL>.mlab.com:57245/YOUR-DB-NAME
+URL_DB=mongodb://<YOUR-DB-USER>:<YOUR-DB-PASSWORD>@ds<YOUR-DB-URL>.mlab.com:<YOUR-DB-PORT>/YOUR-DB-NAME
 SECRET=<YOUR-SUPER-SECRET>
 UPLOAD_FOLDER=uploads
 #
@@ -82,3 +84,13 @@ cd /PATH-TO/YOUR/NODE-SERVER/server/public
 mv index.html administration
 ```
 Your server it's ready to serve your administration page don't forget to remove your user "1" from database before upload your site to production.
+
+## Author
+[Óscar Medina](https://www.github.com/oscmedgon)
+
+## Acknowledgments
+[SkylabCoders](http://www.skylabcoders.com/es)
+[JuanMa Garrido](https://github.com/juanmaguitar)
+[Manuel Barzi](https://github.com/manuelbarzi)
+[Joan Albert](https://github.com/jalbertsr)
+[AlejandroDG](https://github.com/agandia9)

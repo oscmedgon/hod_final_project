@@ -11,7 +11,7 @@
     "phoenix": "rm -Rv node_modules && echo -------------------------------------------------------- && echo All node modules removed, reinstalling node modules && echo -------------------------------------------------------- && npm install && nodemon index"
   },
   "keywords": [],
-  "author": "",
+  "author": "Óscar Medina",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",

@@ -81,6 +81,8 @@ margin-top: 50px;
 }
 .article-body{
   width: 45%;
+  min-height: 700px;
+  position: relative;
 }
 .hot-article-body p, .article-body p{
   font-size: 15px;
@@ -112,11 +114,15 @@ margin-top: 50px;
   max-width: 100%;
   padding-bottom: 10px:
 }
+.article-footer{
+  position: absolute;
+  bottom: 0px;
+}
 .article-information{
+  margin-top: 20px;
   background-color: #232629;
   padding: 10px 10px;
   border-radius: 5px;
-  margin-top: 20px;
 }
 .article-information > p {
   font-size: 20px;
@@ -154,6 +160,11 @@ margin-top: 50px;
 .read-more{
   width: 50%;
   margin: auto;
+}
+.article-content{
+  height: 200px;
+  overflow: hidden;
+  margin-bottom: 5px;
 }
 .read-more-button{
   background-color: #738bd7;

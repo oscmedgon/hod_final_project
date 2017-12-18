@@ -30,15 +30,16 @@ block content
                     a(href=`/article/`+article._id)=article.title
                   div.article-img
                     img.img-responsive(src=article.image, alt='article-img')
-                  div!=article.body
+                  .article-content!=article.body
+                  .article-footer
                     .read-more
                       a(href=`/article/`+article._id)
                         button.read-more-button Leer más
-                  .article-information
-                    p Autor: 
-                      a(href=`/user/`+article.author._id)=article.author.name
-                    p.date-of-publish Fecha de publicación: 
-                      span=article.date_pretty
+                    .article-information
+                      p Autor: 
+                        a(href=`/user/`+article.author._id)=article.author.name
+                      p.date-of-publish Fecha de publicación: 
+                        span=article.date_pretty
           .pagination
             if page > 1
               a(href=baseUrl+(page-1)).prev-page

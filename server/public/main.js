@@ -11,10 +11,23 @@ $('.register-form').on('submit', function (e) {
   }
   const url = '/api_register'
   const method = 'POST'
+  const {username, password} = data
   $.ajax({ url, method, data })
     .then(response => {
       toastr['success'](response.msg)
-      window.location.reload()
+      const data = {
+        username: username,
+        password: password
+      }
+      const url = '/api_login'
+      const method = 'POST'
+      $.ajax({ url, method, data })
+        .then(response => {
+          toastr['success'](response.msg)
+          window.location.pathname = '/'
+        }, response => {
+          toastr['error']('El usuario o la contraseña son incorrectos.')
+        })
     }, response => {
       toastr['error']('Error al crear el usuario, es posible que el usuario ya exista.')
     })

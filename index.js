@@ -1,3 +1,4 @@
+const opbeat = require('opbeat').start()
 // Load enviroment
 require('dotenv').load()
 const {URL_DB} = process.env

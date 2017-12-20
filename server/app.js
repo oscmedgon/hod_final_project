@@ -22,8 +22,6 @@
 
   // Setting time manager
   app.locals.moment = moment
-  // Configuring stadistics serverver
-  app.use(opbeat.middleware.express())
   // Setting statics
   app.use(express.static(path.join(__dirname, 'public')))
 

@@ -1,4 +1,5 @@
 // Dependencies
+  var opbeat = require('opbeat').start()
   const express = require('express')
   const session = require('express-session')
   const bodyParser = require('body-parser')
@@ -22,7 +23,8 @@
 
   // Setting time manager
   app.locals.moment = moment
-
+  // Configuring stadistics serverver
+  app.use(opbeat.middleware.express())
   // Setting statics
   app.use(express.static(path.join(__dirname, 'public')))
 

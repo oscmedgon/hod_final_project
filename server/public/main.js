@@ -1,4 +1,6 @@
-if (window.location.protocol === 'http:') window.location.protocol = 'https:'
+
+if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost') window.location.protocol = 'https:'
+
 $('.message a').click(function () {
   $('form').animate({height: 'toggle', opacity: 'toggle'}, 'slow')
 })
@@ -51,11 +53,11 @@ $('.login-form').on('submit', function (e) {
     })
   })
 
-  $('.imageUpload').on('submit', function (e) {
+  $('.input-file').on('change', function (e) {
     e.preventDefault()
-    const id = $(this).data('id')
+    const id = $(this).parent().data('id')
     let data = new FormData()
-    let file = e.target[0].files[0]
+    let file = e.target.files[0]
     // add the files to formData object for the data payload
     data.append('file', file)
     const url = `/user/${id}/modify/avatar`
@@ -90,5 +92,5 @@ $('.login-form').on('submit', function (e) {
     var filepath = this.value
     var m = filepath.match(/([^\/\\]+)$/)
     var filename = m[1]
-    $('#file-upload-label').text(filename)
+    $('#file-upload-label').text('Subiendo... ' + filename)
   })

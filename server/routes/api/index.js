@@ -12,6 +12,9 @@ const articleDashboard = require('./handlers/articleDashboard')
 const newArticle = require('./handlers/newArticle')
 const removeArticle = require('./handlers/removeArticle')
 
+const verifyDiscordLink = require('./handlers/verifyDiscordLink')
+const signDiscordLink = require('./handlers/signDiscordLink')
+
 // Requiring dependencies
 const path = require('path')
 const getArticleToModify = require('./handlers/getArticleToModify')
@@ -28,6 +31,11 @@ const upload = multer({
 
 const router = express.Router()
 
+// Discord Link
+router.get('/api/discord/:token', verifyDiscordLink)
+router.post('/api/discord/sign', signDiscordLink)
+
+// Webpage API
 router.get('/api/users/', getUsersAllUsers)
 router.get('/api/users/admin', getUsersAllAdministrators)
 router.get('/api/articles/', getAllArticles)

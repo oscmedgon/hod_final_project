@@ -8,6 +8,11 @@ const UserSchema = new Schema({
   username: String,
   name: String,
   email: { type: String, unique: true, dropDups: true },
+  discord: {
+    username: String,
+    avatar: String,
+    id: String
+  },
   password: String,
   description: String,
   state: String,

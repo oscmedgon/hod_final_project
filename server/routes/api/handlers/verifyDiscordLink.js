@@ -1,12 +1,14 @@
-const Article = require('../../../models/Article')
+const User = require('../../../models/User')
+const jwt = require('jsonwebtoken')
+
+const { SECRET } = process.env
 
 function removeArticle (req, res) {
-  const { id } = req.params
-
-  Article.findByIdAndRemove(id)
-  .then(res.status(200).json({msg: 'Article succesfully created!'}),
-        res.status(400).json({msg: 'Error creating article'})
-      )
+  const { user } = req.body
+  const { token } = req.params
+  const userData = jwt.verify(token, SECRET)
+  console.log(userData)
+  console.log(req.user)
 }
 
 module.exports = removeArticle

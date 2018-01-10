@@ -9,6 +9,11 @@ const UserSchema = new Schema({
   description: String,
   state: String,
   avatar: String,
+  discord: {
+    id: String,
+    username: String,
+    status: Boolean
+  },
   date_of_creation: String,
   website: String,
   user_type: Number,
@@ -16,3 +21,12 @@ const UserSchema = new Schema({
 }, { collection })
 
 module.exports = mongoose.model('User', UserSchema)
+
+// Update database with new changes template
+// db.<-collection->.update(
+//   {},
+//   {
+//     $set:
+//     {NEW INFO TO DATABASE}
+//   },
+//    {multi: true})

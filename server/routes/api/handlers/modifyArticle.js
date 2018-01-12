@@ -8,7 +8,6 @@ function modifyArticle (req, res) {
   Article.findByIdAndUpdate(id, data)
   .then(response => { res.status(200).json({msg: `Article ${id} succesfuly modified`}) },
         response => { res.status(400).json({msg: `An error ocurred, article ${id} not modified`}) }
-
 )
 }
 

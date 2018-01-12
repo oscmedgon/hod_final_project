@@ -10,7 +10,7 @@ const UserSchema = new Schema({
   email: { type: String, unique: true, dropDups: true },
   discord: {
     username: String,
-    avatar: String,
+    status: Boolean,
     id: String
   },
   password: String,

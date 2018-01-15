@@ -10,7 +10,7 @@ async function signDiscordLink (req, res) {
     username: username}
   })
   if (!data.length) {
-    const token = jwt.sign({ id, username }, SECRET)
+    const token = jwt.sign({ id, username }, SECRET, {expiresIn: '10m'})
     res.status(200).json({token: token})
   } else {
     res.status(400).json({msg: 'Esta cuenta de discord ya ha sido vinculada con anterioridad, contacte con el servicio técnico si tiene problemas.'})

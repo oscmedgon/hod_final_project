@@ -14,6 +14,7 @@ const removeArticle = require('./handlers/removeArticle')
 
 const verifyDiscordLink = require('./handlers/verifyDiscordLink')
 const signDiscordLink = require('./handlers/signDiscordLink')
+const discordLink = require('./handlers/discordLink')
 
 // Requiring dependencies
 const path = require('path')
@@ -34,6 +35,7 @@ const router = express.Router()
 // Discord Link
 router.get('/api/discord/:token', verifyDiscordLink)
 router.post('/api/discord/sign', signDiscordLink)
+router.post('/api/discord/link', discordLink)
 
 // Webpage API
 router.get('/api/users/', getUsersAllUsers)

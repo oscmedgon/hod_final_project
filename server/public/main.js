@@ -94,3 +94,19 @@ $('.login-form').on('submit', function (e) {
     var filename = m[1]
     $('#file-upload-label').text('Subiendo... ' + filename)
   })
+
+$('.link-discord').on('click', e => {
+  const data = {
+    token: e.target.id
+  }
+  const url = '/api/discord/link'
+  const method = 'POST'
+  $.ajax({ url, method, data })
+    .then(response => {
+      toastr['success'](response.msg)
+      $('#root').text(response.msg)
+    }, response => {
+      toastr['error'](response.msg)
+      $('#root').text(response.msg)
+    })
+})

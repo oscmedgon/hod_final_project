@@ -1,5 +1,5 @@
 
-if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost' && (window.location.host !== 'qa.harbingersofdevastation.com') window.location.protocol = 'https:'
+if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost' && window.location.host !== 'qa.harbingersofdevastation.com') window.location.protocol = 'https:'
 
 $('.message a').click(function () {
   $('form').animate({height: 'toggle', opacity: 'toggle'}, 'slow')

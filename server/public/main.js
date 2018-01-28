@@ -27,7 +27,7 @@ $('.register-form').on('submit', function (e) {
       $.ajax({ url, method, data })
         .then(response => {
           toastr['success'](response.msg)
-          window.location.pathname = '/'
+          window.location.reload()
         }, response => {
           toastr['error']('El usuario o la contraseña son incorrectos.')
         })
@@ -47,7 +47,7 @@ $('.login-form').on('submit', function (e) {
   $.ajax({ url, method, data })
     .then(response => {
       toastr['success'](response.msg)
-      window.location.pathname = '/'
+      window.location.reload()
     }, response => {
       toastr['error']('El usuario o la contraseña son incorrectos.')
     })

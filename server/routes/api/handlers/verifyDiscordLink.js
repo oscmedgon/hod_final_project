@@ -19,7 +19,6 @@ function verifyDiscordLink (req, res) {
       error.msg = 'Tu usuario ya tiene una cuenta de discord vinculada contacte con administración para revisar su caso.'
     } else {
       error.status = false
-      console.log(req.user)
       data.token = jwt.sign({ user: req.user._id, discordData }, SECRET)
     }
     res.render('discord', {userData, discord: discordData, error: error, data})

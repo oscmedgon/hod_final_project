@@ -25,7 +25,6 @@ const multer = require('multer')
 // Loading cloudinary configuration
 const uploadCloudinary = require('./handlers/uploadCloudinary')
 const uploadFolderPath = path.join(global.__base, process.env.UPLOAD_FOLDER)
-console.log(uploadFolderPath)
 const upload = multer({
   dest: uploadFolderPath
 })

@@ -22,26 +22,18 @@ body{
   text-align: justify;
   box-sizing: border-box;
   width: 100%;
-  position: absolute;
-  top: 0px;
 }
 html,
 body {
     height: 100vh;
     font-family: 'Play', sans-serif;
 }
-.login-page {
-  width: 700px;
-  padding: 100px 0 0;
-  margin: auto;
-}
 .form {
   position: relative;
   z-index: 1;
   background: #323232;
   max-width: 700px;
-  margin: 15.6vh auto 25.6vh;
-  padding: 45px;
+  padding: 15px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
@@ -54,6 +46,8 @@ body {
   padding: 15px;
   box-sizing: border-box;
   font-size: 14px;
+  color: #738BD7;
+  font-weight: bolder;
 }
 .form button {
   text-transform: uppercase;

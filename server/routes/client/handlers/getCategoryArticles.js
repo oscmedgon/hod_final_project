@@ -19,7 +19,6 @@ function getCategoryArticles (req, res) {
         return article
       })
     }
-    console.log(articles)
     if (err) res.redirect('/')
     res.render('index', {baseUrl: `/articles/${category}?page=`, page: page, sectionTitle: category, userData, featuredArticle: articles[0], articles: articles.slice(1)})
   })

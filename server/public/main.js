@@ -110,3 +110,22 @@ $('.link-discord').on('click', e => {
       $('#root').text(response.msg)
     })
 })
+
+$('.coment-form').on('submit', e => {
+  e.preventDefault()
+  const data = {
+    article: e.target.id,
+    title: e.target[0].value,
+    body: e.target[1].value
+  }
+  const url = '/api/coment/add'
+  const method = 'POST'
+  console.log(data)
+  $.ajax({ url, method, data })
+    .then(response => {
+      toastr['success'](response.msg)
+      window.location.reload()
+    }, response => {
+      toastr['error'](response.msg)
+    })
+})

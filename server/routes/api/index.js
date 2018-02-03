@@ -16,6 +16,8 @@ const verifyDiscordLink = require('./handlers/verifyDiscordLink')
 const signDiscordLink = require('./handlers/signDiscordLink')
 const discordLink = require('./handlers/discordLink')
 
+const newComent = require('./handlers/newComent')
+
 // Requiring dependencies
 const path = require('path')
 const getArticleToModify = require('./handlers/getArticleToModify')
@@ -30,6 +32,8 @@ const upload = multer({
 })
 
 const router = express.Router()
+// User coments
+router.post('/api/coment/add', newComent)
 
 // Discord Link
 router.get('/api/discord/:token', verifyDiscordLink)

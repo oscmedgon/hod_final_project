@@ -11,25 +11,35 @@ block content
               img.img-responsive(src=article.image, alt='article-img')
             .full-article-body!=article.body
               p.date-of-publish Autor: 
-                span=article.author.name
+                a(href=`/user/`+article.author.id)
+                  span=article.author.name
               p.date-of-publish Fecha de publicación: 
                 span=article.date_pretty
-          .coments
+          .coments-container
+            h2.section-title=coments.length 
+              |  Comentarios
             each coment in coments
-              h3.coment-title=coment.title
-              p.coment-body!=coment.body
-              .coment-info
-                span=coment.author.name
-                span=coment.date_pretty
+              .coment-container
+                .img-contaier
+                  img(src=coment.author.avatar class='user-avatar' width='100%')
+                .body-container
+                  h3.coment-title=coment.title
+                  p.coment-body!=coment.body
+                  .coment-info
+                    span
+                      a(href=`/user/`+coment.author.id)=coment.author.name
+                    | &nbsp;
+                    span=coment.date_pretty
+          .coment-editor
             if userData
-              h2.article-title 
+              h2.section-title
                 if coments.length
                   | Comentar la publicación
                 else 
                   | Se el primero en comentar la publicación
               form.coment-form(id=article.id)
-                input(type='text' name='title' placeholder='Escribe el título de tu comentario')
-                textarea(name='body' placeholder='Escribe el cuerpo de tu comentario' required)
+                input(class='form-title' type='text' name='title' placeholder='Escribe el título de tu comentario')
+                textarea(class='form-body' name='body' placeholder='Escribe el cuerpo de tu comentario' required)
                 button.default-button(type='submit' required) Enviar comentario
             else
               h2.article-title Debes iniciar sesión para comentar las publicaciones 

@@ -19,7 +19,7 @@ function registerUser (req, res) {
   const account = new User({username, name, email, active, discord, description, avatar, user_type, date_of_creation, website});
 
   User.register(account, password, err => {
-    if (err) res.status(400).json({msg: err});
+    if (err) res.status(400).json({msg: `${err} ${username} ${email}`});
     else mailActivation(req, res, account);
   });
 }

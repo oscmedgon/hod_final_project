@@ -5,6 +5,7 @@ const getArticle = require('./handlers/getArticle')
 const getUserProfile = require('./handlers/getUserProfile')
 const getModifyForm = require('./handlers/getModifyForm')
 const getAdministration = require('./handlers/getAdministration')
+const activateAcount = require('./handlers/activateAcount');
 
 const router = express.Router()
 
@@ -15,6 +16,7 @@ router.get('/user/:id', getUserProfile)
 router.get('/user/:id/modify', getModifyForm)
 router.get('/administration*$', getAdministration)
 router.get('/administration/*$', getAdministration)
+router.get('/activate/:token', activateAcount);
 router.get('/login', (req, res) => {
   if (req.user) {
     res.redirect('/')

@@ -8,4 +8,14 @@ db.on('connected', function () {
 db.on('error', err => console.log(`Mongoose default connection error: ${err}`))
 db.on('disconnected', () => console.log('Mongoose default connection disconnected'))
 
+// // -------------------------DB UPDATE TO NEW FEATURES USE IN COMMAND LINE
+// db.users.update(
+//   {},
+//   {
+//     $set:
+//     {active: false}
+//   },
+//    {multi: true})
+//    // ------------------------END OF UPDATE
+
 module.exports = db

@@ -1,5 +1,18 @@
+.pending-activation {
+  margin-top: 20px;
+  background-color: #232629;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.pending-activation .email{
+  color: #738bd7;
+}
+
 .user-management{
   margin: 0 auto;
+  margin-top: 10px;
   border-radius: 10px;
   background-color: #232629;
   margin-bottom: 10px;

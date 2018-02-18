@@ -1,4 +1,12 @@
 aside.col-md-3.sidebar
+  if userData && !userData.active
+    .pending-activation
+      p
+        | La cuenta 
+        span.email=userData.email
+        |  no se ha sido verificada, revise su bandeja de entrada. Si quiere que le enviemos un nuevo email pulse 
+        a(href=`/user/`+ userData._id +`/modify`) AQUI
+        
   if userData
     .user-management.row
       h2 Hola  

@@ -1,5 +1,10 @@
+let env = '';
 
-// if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost') window.location.protocol = 'https:'
+if (window.location.hostname !== 'localhost') env = 'local'
+else if (window.location.host !== 'qa.harbingersofdevastation.com') env = 'qa'
+else env = 'production'
+
+if (env === 'production' && window.location.protocol === 'http:') window.location.protocol = 'https:'
 
 $('.message a').click(function () {
   $('form').animate({height: 'toggle', opacity: 'toggle'}, 'slow')
@@ -27,7 +32,7 @@ $('.register-form').on('submit', function (e) {
       $.ajax({ url, method, data })
         .then(response => {
           toastr['success'](response.msg)
-          window.location.pathname = '/'
+          window.location.reload()
         }, response => {
           toastr['error']('El usuario o la contraseña son incorrectos.')
         })
@@ -47,7 +52,7 @@ $('.login-form').on('submit', function (e) {
   $.ajax({ url, method, data })
     .then(response => {
       toastr['success'](response.msg)
-      window.location.pathname = '/'
+      window.location.reload()
     }, response => {
       toastr['error']('El usuario o la contraseña son incorrectos.')
     })
@@ -108,5 +113,24 @@ $('.link-discord').on('click', e => {
     }, response => {
       toastr['error'](response.msg)
       $('#root').text(response.msg)
+    })
+})
+
+$('.coment-form').on('submit', e => {
+  e.preventDefault()
+  const data = {
+    article: e.target.id,
+    title: e.target[0].value,
+    body: e.target[1].value
+  }
+  const url = '/api/coment/add'
+  const method = 'POST'
+  console.log(data)
+  $.ajax({ url, method, data })
+    .then(response => {
+      toastr['success'](response.msg)
+      window.location.reload()
+    }, response => {
+      toastr['error'](response.msg)
     })
 })

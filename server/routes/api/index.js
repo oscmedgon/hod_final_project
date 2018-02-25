@@ -16,6 +16,8 @@ const verifyDiscordLink = require('./handlers/verifyDiscordLink')
 const signDiscordLink = require('./handlers/signDiscordLink')
 const discordLink = require('./handlers/discordLink')
 
+const newComent = require('./handlers/newComent')
+
 // Requiring dependencies
 const path = require('path')
 const getArticleToModify = require('./handlers/getArticleToModify')
@@ -25,12 +27,13 @@ const multer = require('multer')
 // Loading cloudinary configuration
 const uploadCloudinary = require('./handlers/uploadCloudinary')
 const uploadFolderPath = path.join(global.__base, process.env.UPLOAD_FOLDER)
-console.log(uploadFolderPath)
 const upload = multer({
   dest: uploadFolderPath
 })
 
 const router = express.Router()
+// User coments
+router.post('/api/coment/add', newComent)
 
 // Discord Link
 router.get('/api/discord/:token', verifyDiscordLink)

@@ -1,4 +1,12 @@
 aside.col-md-3.sidebar
+  if userData && !userData.active
+    .pending-activation
+      p
+        | La cuenta 
+        span.email=userData.email
+        |  no se ha sido verificada, revise su bandeja de entrada. Si quiere que le enviemos un nuevo email pulse 
+        a(href=`/user/`+ userData._id +`/modify`) AQUI
+        
   if userData
     .user-management.row
       h2 Hola  
@@ -20,7 +28,21 @@ aside.col-md-3.sidebar
     .user-management
       div
         h2 Bienvenido a Hod
-        p.user-description Inicia sesión con tu cuenta de Harbingers of Devastation para disfrutar la comunidad y ayudarla a crecer.
-        a(href="/login")
-          button.user-button.default-button Iniciar sesión
+        .login-page
+          .form
+            form.register-form(enctype='multipart/form-data' method='post' action='/login')
+              input(type='text', name='username' placeholder='Nombre de usuario...' requered)
+              input(type='password', name='password' placeholder='Contraseña...' required)
+              input(type='email' name='email' placeholder='Correo elecrónico...' pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" title='Introduzca un correo válido correo@host.dominio' required)
+              button Registrar usuario
+              p.message
+                | ¿Tienes ya una cuenta? 
+                a(href='#') Inicia sesión
+            form.login-form
+              input(type='text', placeholder='Nombre de usuario...' requered)
+              input(type='password', placeholder='Contraseña...' required)
+              button login
+              p.message
+                | ¿No estás registrado? 
+                a(href='#') Crea una cuenta          
   iframe(src='https://discordapp.com/widget?id=347411149458767873&theme=dark', height='500', width='100%', allowtransparency='true', frameborder='0')

@@ -11,7 +11,7 @@ const ArticleSchema = new Schema({
   featured: Boolean,
   category: String,
   date_of_creation: Number,
-  date_pretty: String
+  date_pretty: String,
 
 }, { collection })
 

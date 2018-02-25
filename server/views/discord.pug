@@ -5,12 +5,12 @@ block content
     .row
       section.col-md-9
         if error.status
-          h2 
+          h1
             | Ha ocurrido un error
           p=error.msg
         else
           #root
-            h2
+            h1
               | Se va a proceder a vincular las siguientes cuentas
             p
               span=userData.username

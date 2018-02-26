@@ -1,15 +1,3 @@
-let env = '';
-
-if (window.location.hostname === 'localhost') {
-  env = 'local';
-} else if (window.location.host === 'qa.harbingersofdevastation.com') {
-  env = 'qa';
-} else {
-  env = 'production';
-}
-console.log(env);
-if (env === 'production' && window.location.protocol === 'http:') window.location.protocol = 'https:';
-
 $('.message a').click(function () {
   $('form').animate({height: 'toggle', opacity: 'toggle'}, 'slow');
 });

@@ -1,8 +1,8 @@
 let env = '';
 
-if (window.location.hostname !== 'localhost') {
+if (window.location.hostname === 'localhost') {
   env = 'local';
-} else if (window.location.host !== 'qa.harbingersofdevastation.com') {
+} else if (window.location.host === 'qa.harbingersofdevastation.com') {
   env = 'qa';
 } else {
   env = 'production';

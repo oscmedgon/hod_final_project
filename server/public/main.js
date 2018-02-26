@@ -7,7 +7,7 @@ if (window.location.hostname !== 'localhost') {
 } else {
   env = 'production';
 }
-console.log(env)
+console.log(env);
 if (env === 'production' && window.location.protocol === 'http:') window.location.protocol = 'https:';
 
 $('.message a').click(function () {

@@ -45,6 +45,14 @@
     "request": "^2.83.0"
   },
   "devDependencies": {
+    "event-stream": "^3.3.4",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-pug": "^3.3.0",
+    "gulp-replace": "^0.6.1",
+    "gulp-sass": "^3.2.1",
+    "gulp-sass-bundler": "^1.1.2",
     "nodemon": "^1.13.3"
   }
 }

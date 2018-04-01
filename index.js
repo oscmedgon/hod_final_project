@@ -1,22 +1,22 @@
-const opbeat = require('opbeat').start()
+const opbeat = require('opbeat').start();
 // Load enviroment
-require('dotenv').load()
-const {URL_DB} = process.env
+require('dotenv').load();
+const {URL_DB} = process.env;
 
 // Setting global base url
-global.__base = __dirname
+global.__base = __dirname;
 
 // Setting server port
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 8080;
 
 // Loading database settings
-const db = require('./server/config/db')
-db.openUri(URL_DB)
+const db = require('./server/config/db');
+db.openUri(URL_DB);
 
 // Inicializating express server
-const app = require('./server/app')
+const app = require('./server/app');
 // Configuring stadistics serverver
-app.use(opbeat.middleware.express())
+app.use(opbeat.middleware.express());
 // Starting express server
-app.listen(port)
-console.log(`Listening on PORT ${port}...`)
+app.listen(port);
+console.log(`Listening on PORT ${port}...`);

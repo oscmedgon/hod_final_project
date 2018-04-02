@@ -16,7 +16,7 @@ const jsOutput = './server/public/scripts';
 var hash = '';
 
 gulp.task('jsMin', ['clean-js', 'scripts-templates'], function () {
-  gulp.src(jsInput)
+  return gulp.src(jsInput)
     .pipe(minify({
       ext: {
         src: `.${hash}.debug.js`,
@@ -40,7 +40,6 @@ gulp.task('scripts-templates', function () {
     .pipe(gulp.dest('./server/views/layout'));
 });
 
-
 gulp.task('sass', ['clean-sass', 'clean-css', 'bundle-sass', 'styles-templates'], function () {
   const sassOptions = {
     errLogToConsole: true,
@@ -53,8 +52,8 @@ gulp.task('sass', ['clean-sass', 'clean-css', 'bundle-sass', 'styles-templates']
     .src('./server/views/raw/bundle/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass(sassOptions).on('error', sass.logError))
-    .pipe(sourcemaps.write(`bundle.${hash}.map.css`))
     .pipe(autoprefixer(autoprefixerOptions))
+    .pipe(sourcemaps.write(`bundle.${hash}.map.css`))
     .pipe(gulp.dest(cssOutput));
 });
 

@@ -86,8 +86,8 @@ gulp.task('styles-templates', function () {
 });
 
 gulp.task('watch', function () {
-  gulp.watch(`${sassInput}/**/*.scss`, ['sass']);
-  gulp.watch(jsInput, ['jsMin']);
+  gulp.watch(`${sassInput}/**/*.scss`, ['prod']);
+  gulp.watch(jsInput, ['prod']);
 });
 
 gulp.task('prod', ['sass', 'jsMin']);

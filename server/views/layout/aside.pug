@@ -19,7 +19,7 @@ aside.col-md-3.sidebar
           p
             a.user-website(href=userData.website target='_BLANK') Pagina web personal
         p.date=userData.date_of_creation
-      div
+      .user-barge-button-container
         a.user-button(href=`/user/`+ userData._id +`/modify`)
           button.modify-button Modificar perfil
         a.user-button(href="/logout")

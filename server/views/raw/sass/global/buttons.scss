@@ -1,0 +1,16 @@
+@mixin button($class-name, $background-color, $color, $font-size) {
+  .#{$class-name} {
+    background-color: $background-color;
+    color: $color;
+    border: 0px;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    font-size: $font-size;
+  }
+}
+
+@include button('modify-button', $hod-orange, white, 20px);
+@include button('default-button', $hod-blue, white, 20px);
+@include button('read-more-button', $hod-blue, white, 15px);

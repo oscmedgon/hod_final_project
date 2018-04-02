@@ -11,14 +11,13 @@
 
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background-color: #738BD7;
+    background-color: $hod-blue;
     -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.5);
 }
 body{
   background-image: url('/images/zwartevilt.png');
   font-family: 'Play', sans-serif;
-  background-color: #000;
-  text-align: justify;
+  background-color: #333;
   box-sizing: border-box;
   top: 0px;
 }
@@ -35,7 +34,7 @@ body{
   text-decoration: none;
 }
 .article-title a:hover{
-  color: #738BD7;
+  color: $hod-blue;
 }
 .articles .articles-section{
   padding: 0px;
@@ -147,7 +146,7 @@ margin-top: 50px;
   right: 30px;
 }
 .page-button{
-  background-color: #738bd7;
+  background-color: $hod-blue;
   color: white;
   padding: 15px;
   border-radius: 30px;
@@ -165,20 +164,6 @@ margin-top: 50px;
   height: 200px;
   overflow: hidden;
   margin-bottom: 5px;
-}
-.read-more-button{
-  background-color: #738bd7;
-  color: white;
-  border: 0px;
-  font-weight: bolder;
-  width: 100%;
-  text-align: center;
-  padding: 10px;
-  font-size: 15px;
-  border-radius: 15px;
-}
-.read-more-button:hover{
-  color: orange;
 }
 
 @media (min-width: 1000px) {

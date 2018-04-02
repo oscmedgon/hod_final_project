@@ -6,8 +6,11 @@
   "engines": {
     "node": "8.9.3"
   },
+  "nodemonConfig": {
+    "ignore": ["server/views/raw/**/*"],
+    "delay": "2500"
+  },
   "scripts": {
-    "prestart": "npm install",
     "start": "node index.js",
     "superStart": "npm install && npm i nodemon --save-dev && nodemon index.js",
     "dev": "nodemon index.js",
@@ -51,7 +54,6 @@
     "gulp-clean": "^0.4.0",
     "gulp-concat": "^2.6.1",
     "gulp-minify": "^2.1.0",
-    "gulp-pug": "^3.3.0",
     "gulp-replace": "^0.6.1",
     "gulp-sass": "^3.2.1",
     "gulp-sass-bundler": "^1.1.2",

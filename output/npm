@@ -1,0 +1,6 @@
+
+> todo-app-express@1.0.0 start /home/oscraker/projects/hod/server
+> node index.js
+
+Listening on PORT 8080...
+Connected to DB...

@@ -6,10 +6,6 @@
   "engines": {
     "node": "8.9.3"
   },
-  "nodemonConfig": {
-    "ignore": ["server/views/raw/**/*"],
-    "delay": "2500"
-  },
   "scripts": {
     "start": "node index.js",
     "superStart": "npm install && npm i nodemon --save-dev && nodemon index.js",

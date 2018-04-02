@@ -90,5 +90,4 @@ gulp.task('watch', function () {
   gulp.watch(jsInput, ['jsMin']);
 });
 
-
 gulp.task('prod', ['sass', 'jsMin']);

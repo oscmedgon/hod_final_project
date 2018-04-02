@@ -16,7 +16,7 @@ const jsOutput = './server/public/scripts';
 var hash = '';
 
 gulp.task('jsMin', ['clean-js', 'scripts-templates'], function () {
-  return gulp.src(jsInput)
+  gulp.src(jsInput)
     .pipe(minify({
       ext: {
         src: `.${hash}.debug.js`,
@@ -29,12 +29,11 @@ gulp.task('jsMin', ['clean-js', 'scripts-templates'], function () {
 });
 
 gulp.task('clean-js', function () {
-  return gulp.src(`${jsOutput}/*`, {read: false})
+  gulp.src(`${jsOutput}/*`, {read: false})
     .pipe(clean());
 });
 
 gulp.task('scripts-templates', function () {
-  hash = Date.now() / 1000 | 0;
   gulp.src(['./server/views/layout/scripts.pug'])
     .pipe(replace(/bundle.[0-9]{1,10}.js/, `bundle.${hash}.js`))
     .pipe(gulp.dest('./server/views/layout'));
@@ -48,8 +47,8 @@ gulp.task('sass', ['clean-sass', 'clean-css', 'bundle-sass', 'styles-templates']
   const autoprefixerOptions = {
     browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
   };
-  return gulp
-    .src('./server/views/raw/bundle/*.scss')
+  gulp
+    .src(`./server/views/raw/bundle/bundle.${hash}.scss`)
     .pipe(sourcemaps.init())
     .pipe(sass(sassOptions).on('error', sass.logError))
     .pipe(autoprefixer(autoprefixerOptions))
@@ -58,7 +57,6 @@ gulp.task('sass', ['clean-sass', 'clean-css', 'bundle-sass', 'styles-templates']
 });
 
 gulp.task('bundle-sass', function () {
-  hash = Date.now() / 1000 | 0;
   sassBundler({
     dirs: [
       {path: `${sassInput}/loader.scss`, depth: -1}
@@ -71,11 +69,11 @@ gulp.task('bundle-sass', function () {
 });
 
 gulp.task('clean-sass', function () {
-  return gulp.src(`${sassOutput}/*`, {read: false})
+  gulp.src(`${sassOutput}/*`, {read: false})
     .pipe(clean());
 });
 gulp.task('clean-css', function () {
-  return gulp.src(`${cssOutput}/*`, {read: false})
+  gulp.src(`${cssOutput}/*`, {read: false})
     .pipe(clean());
 });
 
@@ -89,5 +87,8 @@ gulp.task('watch', function () {
   gulp.watch(`${sassInput}/**/*.scss`, ['prod']);
   gulp.watch(jsInput, ['prod']);
 });
+gulp.task('hash', function () {
+  hash = Date.now() / 1000 | 0;
+});
 
-gulp.task('prod', ['sass', 'jsMin']);
+gulp.task('prod', ['hash', 'sass', 'jsMin']);

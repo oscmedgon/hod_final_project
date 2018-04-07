@@ -19,6 +19,10 @@
     & .date-of-publish > span{
       font-weight: bolder;
     }
+    & .article-footer {
+      position: absolute;
+      bottom: 0px;
+    }
   }
 }
 
@@ -35,6 +39,12 @@
   flex-wrap: wrap;
   & .article-body-container {
     width: 70%;
+    & {
+      & .article-footer {
+        position: relative;
+        bottom: 0px;
+      }
+    }
   }
 }
 .hot-article-container .hot-article-body{

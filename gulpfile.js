@@ -54,8 +54,6 @@ gulp.task('sass', ['clean-sass', 'clean-css', 'bundle-sass', 'styles-templates']
     .pipe(autoprefixer(autoprefixerOptions))
     .pipe(sourcemaps.write(`bundle.${hash}.map.css`))
     .pipe(gulp.dest(cssOutput));
-  gulp.src(`${sassOutput}/*`, {read: false})
-    .pipe(clean());
 });
 
 gulp.task('bundle-sass', function () {

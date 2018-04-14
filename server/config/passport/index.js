@@ -1,15 +1,14 @@
-const passport = require('passport')
+const passport = require('passport');
 
-const User = require('../../models/User')
+const User = require('../../models/User');
 passport.serializeUser(function (user, done) {
-  done(null, user._id)
-})
+  done(null, user._id);
+});
 
 passport.deserializeUser(function (id, done) {
   User.findById(id, function (err, user) {
-    done(err, user)
-  })
-})
-passport.use(User.createStrategy())
+    done(err, user);
+  });
+});
 
-module.exports = passport
+module.exports = passport;

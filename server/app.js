@@ -6,6 +6,18 @@ const moment = require('moment');
 const passport = require('./config/passport');
 const path = require('path');
 
+const firebase = require('firebase');
+const serviceAccount = require('../private/qa-hod-firebase-adminsdk-wqzon-a3d7b7b3b0.json');
+
+firebase.initializeApp({
+  apiKey: process.env.FB_apiKey,
+  authDomain: process.env.FB_authDomain,
+  databaseURL: process.env.FB_databaseURL,
+  projectId: process.env.FB_projectId,
+  storageBucket: process.env.FB_storageBucket,
+  messagingSenderId: process.env.FB_messagingSenderId
+});
+
 // Loading router
 const routesAuth = require('./routes/auth');
 const routesClient = require('./routes/client');

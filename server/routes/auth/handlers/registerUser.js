@@ -1,6 +1,6 @@
 const User = require('../../../models/User');
 const moment = require('moment');
-const mailActivation = require('./mailActivation');
+const {auth} = require('firebase');
 
 function registerUser (req, res) {
   const { username, password, email } = req.body;
@@ -17,11 +17,17 @@ function registerUser (req, res) {
   const date_of_creation = moment().format('DD-MM-YYYY, HH:mm:ss');
   const website = null;
   const account = new User({username, name, email, active, discord, description, avatar, user_type, date_of_creation, website});
-
-  User.register(account, password, err => {
-    if (err) res.status(400).json({msg: `${err} ${username} ${email}`});
-    else mailActivation(req, res, account);
-  });
+  auth().createUserWithEmailAndPassword(email, password)
+    .then(response => {
+      account.firebase_id = response.uid;
+      account.save({...account, firebase_id: response.uid});
+      res.status(200).json({msg: `Account created succesfully`});
+    }, error => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      res.status(400).json({msg: `${errorMessage}`});
+      console.log(errorCode, errorMessage);
+    });
 }
 
 module.exports = registerUser;

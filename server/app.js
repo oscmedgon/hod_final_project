@@ -7,7 +7,6 @@ const passport = require('./config/passport');
 const path = require('path');
 
 const firebase = require('firebase');
-const serviceAccount = require('../private/qa-hod-firebase-adminsdk-wqzon-a3d7b7b3b0.json');
 
 firebase.initializeApp({
   apiKey: process.env.FB_apiKey,

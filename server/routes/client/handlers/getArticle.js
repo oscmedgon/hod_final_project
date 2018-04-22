@@ -4,7 +4,7 @@ const User = require('../../../models/User')
 const getUserData = require('./getUserData')
 
 function getArticle (req, res) {
-  const userData = getUserData(req.user)
+  const userData = getUserData(req.cookies.user)
   const {id} = req.params
   Article.find({_id: id})
     .then(article => User.populate(article, {path: 'author'}, function (err, article) {

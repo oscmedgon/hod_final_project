@@ -5,7 +5,7 @@ const getUserData = require('../../api/handlers/getUserData')
 const { SECRET } = process.env
 
 function verifyDiscordLink (req, res) {
-  const userData = getUserData(req.user)
+  const userData = getUserData(req.cookies.user)
   const { token } = req.params
   try {
     const discordData = jwt.verify(token, SECRET)

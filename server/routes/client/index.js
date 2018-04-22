@@ -1,32 +1,36 @@
-const express = require('express')
-const getFeturedArticles = require('./handlers/getFeturedArticles')
-const getCategoryArticles = require('./handlers/getCategoryArticles')
-const getArticle = require('./handlers/getArticle')
-const getUserProfile = require('./handlers/getUserProfile')
-const getModifyForm = require('./handlers/getModifyForm')
-const getAdministration = require('./handlers/getAdministration')
+const express = require('express');
+const firebase = require('firebase');
+
+const getFeturedArticles = require('./handlers/getFeturedArticles');
+const getCategoryArticles = require('./handlers/getCategoryArticles');
+const getArticle = require('./handlers/getArticle');
+const getUserProfile = require('./handlers/getUserProfile');
+const getModifyForm = require('./handlers/getModifyForm');
+const getAdministration = require('./handlers/getAdministration');
 const activateAcount = require('./handlers/activateAcount');
 
-const router = express.Router()
+const router = express.Router();
 
-router.get('/', getFeturedArticles)
-router.get('/articles/:category', getCategoryArticles)
-router.get('/article/:id', getArticle)
-router.get('/user/:id', getUserProfile)
-router.get('/user/:id/modify', getModifyForm)
-router.get('/administration*$', getAdministration)
-router.get('/administration/*$', getAdministration)
+router.get('/', getFeturedArticles);
+router.get('/articles/:category', getCategoryArticles);
+router.get('/article/:id', getArticle);
+router.get('/user/:id', getUserProfile);
+router.get('/user/:id/modify', getModifyForm);
+router.get('/administration*$', getAdministration);
+router.get('/administration/*$', getAdministration);
 router.get('/activate/:token', activateAcount);
 router.get('/login', (req, res) => {
   if (req.user) {
-    res.redirect('/')
+    res.redirect('/');
   } else {
-    res.render('login', {title: 'Iniciar sesión'})
+    res.render('login', {title: 'Iniciar sesión'});
   }
-})
+});
 
 router.get('/logout', (req, res) => {
-  req.logout()
-  res.redirect('/')
-})
-module.exports = router
+  firebase.auth().signOut().then(function () {
+    res.clearCookie('user');
+    res.redirect('/');
+  });
+});
+module.exports = router;

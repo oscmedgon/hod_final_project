@@ -5,7 +5,14 @@ function userLogin (req, res) {
   const {email, password} = req.body;
   auth().signInWithEmailAndPassword(email, password)
     .then(response => {
-      res.status(200).json({msg: `Login sucess, a email validation link was sent to ${email}`});
+      User.find({email: email})
+        .then(query => {
+          if (query.length === 1) {
+            res.cookie('user', query[0], { maxAge: 900000, httpOnly: true });
+            console.log(res.cookie);
+            res.status(200).json({msg: `Login sucess`});
+          }
+        });
     }, () => {
       User.find({email: email})
         .then(response => {

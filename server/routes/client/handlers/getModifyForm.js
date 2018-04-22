@@ -2,7 +2,7 @@ const User = require('../../../models/User')
 const getUserData = require('./getUserData')
 
 function getModifyForm (req, res) {
-  const userData = getUserData(req.user)
+  const userData = getUserData(req.cookies.user)
   const {id} = req.params
   const unautorizedUrl = '/user/' + id
   if (!userData) {

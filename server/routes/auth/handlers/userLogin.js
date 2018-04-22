@@ -8,7 +8,7 @@ function userLogin (req, res) {
       User.find({email: email})
         .then(query => {
           if (query.length === 1) {
-            res.cookie('user', query[0], { maxAge: 900000, httpOnly: true });
+            res.cookie('user', query[0].id, { maxAge: 900000, httpOnly: true });
             console.log(res.cookie);
             res.status(200).json({msg: `Login sucess`});
           }

@@ -1,18 +1,29 @@
-const jwt = require('jsonwebtoken')
-const { SECRET } = process.env
-const User = require('../../../models/User')
+const jwt = require('jsonwebtoken');
+const {auth} = require('firebase');
+
+const checkUserOnDatabase = require('./checkUserOnDatabase');
+const registerUserOnFirebase = require('./registerUserOnFirebase');
+
+const { SECRET } = process.env;
 
 function userLogin (req, res) {
-  const {username} = req.body
-  const token = jwt.sign({ username }, SECRET)
-  User.find({username: username, user_type: 1})
-  .then(response => {
-    if (response.length) {
-      res.status(200).json({token: token})
-    } else {
-      res.status(403).json({msg: `Access denied, don't try this at home, ${response}`})
-    }
-  })
+  const {email, password} = req.body;
+  auth().signInWithEmailAndPassword(email, password)
+    .then(response => {
+      const {uid} = response;
+      const token = jwt.sign({ uid }, SECRET);
+      res.status(200).json({token: token});
+    }, async () => {
+      await checkUserOnDatabase(email);
+      registerUserOnFirebase(email, password)
+        .then(response => {
+          const {uid} = response;
+          const token = jwt.sign({ uid }, SECRET);
+          res.status(200).json({token: token});
+        }, error => {
+          res.status(403).json({msg: error});
+        });
+    });
 }
 
-module.exports = userLogin
+module.exports = userLogin;

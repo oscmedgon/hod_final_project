@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const moment = require('moment');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const tokenParser = require('./config/tokenParser');
 
 const firebase = require('firebase');
 
@@ -39,6 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Parsing body requests
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(tokenParser);
 
 // Calling routes
 app.use(routesClient);

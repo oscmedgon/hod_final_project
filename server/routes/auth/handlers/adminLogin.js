@@ -9,16 +9,15 @@ const { SECRET } = process.env;
 function userLogin (req, res) {
   const {email, password} = req.body;
   auth().signInWithEmailAndPassword(email, password)
-    .then(response => {
-      const {uid} = response;
-      const token = jwt.sign({ uid }, SECRET);
+    .then(async response => {
+      const {_id} = await checkUserOnDatabase(email);
+      const token = jwt.sign({ _id }, SECRET);
       res.status(200).json({token: token});
     }, async () => {
-      await checkUserOnDatabase(email);
+      const {_id} = await checkUserOnDatabase(email);
       registerUserOnFirebase(email, password)
         .then(response => {
-          const {uid} = response;
-          const token = jwt.sign({ uid }, SECRET);
+          const token = jwt.sign({ _id }, SECRET);
           res.status(200).json({token: token});
         }, error => {
           res.status(403).json({msg: error});

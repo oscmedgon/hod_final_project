@@ -6,7 +6,7 @@ function getCategoryArticles (req, res) {
   const limit = 5
   const page = parseInt(req.query.page) || 1
   const skip = (page * limit) - limit
-  const userData = getUserData(req.cookies.user)
+  const userData = req.user
   const {category} = req.params
   Articles.find({category: category})
   .sort({date_of_creation: -1})

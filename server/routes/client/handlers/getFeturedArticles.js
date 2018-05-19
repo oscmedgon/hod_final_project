@@ -1,11 +1,11 @@
 const Articles = require('../../../models/Article');
 const User = require('../../../models/User');
-const getUserData = require('./getUserData');
+
 async function getFeturedArticles (req, res) {
   const limit = 5;
   const page = parseInt(req.query.page) || 1;
   const skip = (page * limit) - limit;
-  const userData = await getUserData(req.cookies.user);
+  const userData = req.user;
   Articles.find({featured: true})
     .sort({date_of_creation: -1})
     .limit(5)

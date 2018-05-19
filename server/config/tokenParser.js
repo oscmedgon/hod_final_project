@@ -9,13 +9,12 @@ async function tokenParser (req, res, next) {
     const {_id} = await jwt.verify(token, SECRET);
     await User.findById(_id)
       .then((response) => {
-        console.log(response)
         req.user = response;
-        console.log('---------------------midleware')
-        console.log(req.user)
       }, (error) => {
         console.error(error);
       });
+  } else {
+    console.log(req.user)
   }
   next();
 }

@@ -2,6 +2,7 @@ const Coment = require('../../../models/Coment');
 const moment = require('moment');
 
 function newComent (req, res) {
+  console.log(req.user)
   const { title, article } = req.body;
   const body = req.body.body.split('\n').join('<br />');
   const date_of_creation = Date.now();

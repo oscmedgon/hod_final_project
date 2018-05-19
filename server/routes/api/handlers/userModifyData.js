@@ -2,7 +2,7 @@ const User = require('../../../models/User')
 const getUserData = require('./getUserData')
 
 function userModifyData (req, res) {
-  const userData = getUserData(req.cookies.user)
+  const userData = req.user
   const {id} = req.params
   if (!userData) {
     res.redirect('/')

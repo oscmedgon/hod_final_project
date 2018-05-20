@@ -11,12 +11,12 @@ $('.register-form').on('submit', function (e) {
   };
   const url = '/api_register';
   const method = 'POST';
-  const {username, password} = data;
+  const {password, email} = data;
   $.ajax({ url, method, data })
     .then(response => {
       toastr['success'](response.msg);
       const data = {
-        username: username,
+        email: email,
         password: password
       };
       const url = '/api_login';
@@ -36,7 +36,7 @@ $('.register-form').on('submit', function (e) {
 $('.login-form').on('submit', function (e) {
   e.preventDefault();
   const data = {
-    username: e.target[0].value.toLowerCase(),
+    email: e.target[0].value.toLowerCase(),
     password: e.target[1].value
   };
   const url = '/api_login';

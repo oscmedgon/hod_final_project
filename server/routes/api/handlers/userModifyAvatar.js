@@ -3,7 +3,7 @@ const getUserData = require('./getUserData')
 
 function userModifyAvatar (req, res) {
   const {imageLink} = req
-  const userData = getUserData(req.user)
+  const userData = req.user
   if (!userData) {
     res.redirect('/')
   } else if (req.params.id == req.user._id) {

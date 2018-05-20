@@ -1,24 +1,28 @@
-const Article = require('../../../models/Article')
-const User = require('../../../models/User')
-const moment = require('moment')
+const Article = require('../../../models/Article');
+const User = require('../../../models/User');
+const moment = require('moment');
 
 function newArticle (req, res) {
-  const { title, category, featured, body } = req.body
-  const date_of_creation = Date.now()
-  const date_pretty = moment().format('DD-MM-YYYY, HH:mm:ss')
-  const author = req.user._id
-  const image = req.body.image || 'https://res.cloudinary.com/dm303fk5u/image/upload/v1519556344/xntno4pmavzs6rjn8szp.png'
-  const article = new Article({title, category, featured, body, date_of_creation, date_pretty, author, image})
-  const {_id} = article
+  console.log(req.user)
+  const { title, category, featured, body } = req.body;
+  const date_of_creation = Date.now();
+  const date_pretty = moment().format('DD-MM-YYYY, HH:mm:ss');
+  const author = req.user._id;
+  const image = req.body.image || 'https://res.cloudinary.com/dm303fk5u/image/upload/v1519556344/xntno4pmavzs6rjn8szp.png';
+  const article = new Article({title, category, featured, body, date_of_creation, date_pretty, author, image});
+  console.log(`--------------------Article----------------`)
+  console.log(author)
+  console.log(article)
+  const {_id} = article;
   article.save(article, err => {
-    if (err) res.status(400).json({msg: 'Error creating article'})
+    if (err) res.status(400).json({msg: 'Error creating article'});
     else {
       User.findByIdAndUpdate(author, {
         $addToSet: {'articles': {_id}}
       }, {'new': true})
-      .then(res.status(200).json({msg: 'Article succesfully created!'}))
+        .then(res.status(200).json({msg: 'Article succesfully created!'}));
     }
-  })
+  });
 }
 
-module.exports = newArticle
+module.exports = newArticle;

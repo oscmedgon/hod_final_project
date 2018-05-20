@@ -9,12 +9,12 @@ block content
         input(type='email', name='email' placeholder='Correo elecrónico...' required)
         button Registrar usuario
         p.message
-          | ¿Tienes ya una cuenta? 
+          | ¿Tienes ya una cuenta?
           a(href='#') Inicia sesión
       form.login-form
-        input(type='text', placeholder='Nombre de usuario...' requered)
-        input(type='password', placeholder='Contraseña...' required)
+        input(name='email' type='email', placeholder='Correo electrónico...' required)
+        input(name='password' type='password', placeholder='Contraseña...' required)
         button login
         p.message
-          | ¿No estás registrado? 
+          | ¿No estás registrado?
           a(href='#') Crea una cuenta

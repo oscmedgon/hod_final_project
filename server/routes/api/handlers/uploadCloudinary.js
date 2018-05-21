@@ -10,20 +10,26 @@ cloudinary.config({
   api_secret: process.env.API_SECRET
 });
 
-function uploadCloudinary (req, res, next) {
+function uploadCloudinary (req, res) {
   if (req.file) {
     cloudinary.uploader.upload(req.file.path, ({ secure_url }) => {
       if (secure_url) {
         req.imageLink = secure_url;
         // delete files inside folder but not the folder itself
         del.sync([`${uploadFolderPath}/**`, `!${uploadFolderPath}`]);
-        next();
       } else {
         res.status(404).send('Oh uh, something went wrong');
       }
     });
-  } else {
-    next();
+  } else if (req && req.body && req.body.image) {
+    const {image} = req.body;
+    cloudinary.uploader.upload(image, ({secure_url}) => {
+      if (secure_url) {
+        res.status(200).json({image: secure_url, status: 'ok'});
+      } else {
+        res.status(404).send('Oh uh, something went wrong');
+      }
+    });
   }
 }
 

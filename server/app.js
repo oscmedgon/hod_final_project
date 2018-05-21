@@ -39,6 +39,7 @@ app.locals.moment = moment;
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Parsing body requests
+app.use(bodyParser.text({limit: 2000000}))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(tokenParser);

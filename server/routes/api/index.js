@@ -53,10 +53,7 @@ router.post('/user/:id/modify/avatar', upload.single('file'), uploadCloudinary, 
 router.post('/user/:id/modify/data', userModifyData);
 router.delete('/api/article/:id/remove', removeArticle);
 router.put('/api/article/:id/modify', modifyArticle);
-router.post('/api/upload', upload.single('file'), uploadCloudinary, (req, res) => {
-  const { imageLink } = req;
-  res.status(200).json({ imageLink });
-});
+router.post('/api/upload', uploadCloudinary);
 
 router.get('/api/article/:id', getArticleToModify);
 router.post('/api/article/new', newArticle);

@@ -11,6 +11,7 @@ cloudinary.config({
 });
 
 function uploadCloudinary (req, res) {
+  console.log(req.file)
   if (req.file) {
     cloudinary.uploader.upload(req.file.path, ({ secure_url }) => {
       if (secure_url) {

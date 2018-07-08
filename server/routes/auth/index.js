@@ -6,9 +6,11 @@ const userLogin = require('./handlers/userLogin');
 const adminLogin = require('./handlers/adminLogin');
 const registerUser = require('./handlers/registerUser');
 const adminCheck = require('./handlers/adminCheck');
+const userData = require('./handlers/userData')
 
-router.post('/api_login', userLogin);
-router.post('/api_register', registerUser);
+router.post('/auth/login', userLogin);
+router.post('/auth/register', registerUser);
+router.get('/auth/active_user', userData)
 
 router.post('/api/admin/login', adminLogin);
 router.post('/api/admin/check', adminCheck);

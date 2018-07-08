@@ -26,6 +26,13 @@ const routesApi = require('./routes/api');
 // Express inicialization
 const app = express();
 
+// Configuring cors
+app.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
+
 // Configuring express app
 // Setting template engine
 app.set('view engine', 'pug');

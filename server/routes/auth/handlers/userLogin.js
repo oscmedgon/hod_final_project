@@ -2,6 +2,7 @@ const {auth} = require('firebase');
 const User = require('../../../models/User');
 
 function userLogin (req, res) {
+  console.log(req.body)
   const {email, password} = req.body;
   auth().signInWithEmailAndPassword(email, password)
     .then(response => {

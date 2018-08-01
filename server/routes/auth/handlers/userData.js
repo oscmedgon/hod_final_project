@@ -1,18 +1,18 @@
-const User = require('../../../models/User');
-
 function adminCheck (req, res) {
-const user = req.cookies.user;
-console.log(req.headers)
-
-User.findById(user)
-    .then((response) => {
-        console.log(response)
-        res.status(200).json(response)
-    })
-    .catch((error) => {
-        console.log(error)
-        res.status(400).json({err: error})
-    })
+    const {user} = req;
+    console.log(user)
+    if (user !== undefined) {
+        console.log(user)
+        res.status(200).json({
+            msg: 'User have an active account',
+            data: user
+        });
+    } else {
+        res.status(403).json({
+            msg: 'No active user detected ty to login again.'
+        });
+    }
 }
-
+       
 module.exports = adminCheck;
+    

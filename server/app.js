@@ -7,6 +7,8 @@ const cookieParser = require('cookie-parser');
 const tokenParser = require('./config/tokenParser');
 const userParser = require('./config/userParser');
 
+var cors = require('cors');
+
 const firebase = require('firebase');
 
 firebase.initializeApp({
@@ -27,11 +29,7 @@ const routesApi = require('./routes/api');
 const app = express();
 
 // Configuring cors
-app.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  next();
-});
+app.use(cors());
 
 // Configuring express app
 // Setting template engine
@@ -53,8 +51,8 @@ app.use(tokenParser);
 app.use(userParser);
 
 // Calling routes
-app.use(routesClient);
-app.use(routesAuth);
-app.use(routesApi);
+app.use('/api', routesClient);
+app.use('/api', routesAuth);
+app.use('/api', routesApi);
 
 module.exports = app;

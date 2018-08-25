@@ -11,7 +11,7 @@ const activateAcount = require('./handlers/activateAcount');
 
 const router = express.Router();
 
-router.get('/', getFeturedArticles);
+router.get('/articles', getFeturedArticles);
 router.get('/articles/:category', getCategoryArticles);
 router.get('/article/:id', getArticle);
 router.get('/user/:id', getUserProfile);

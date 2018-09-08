@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node index.js",
     "superStart": "npm install && npm i nodemon --save-dev && nodemon index.js",
-    "dev": "nodemon index.js",
+    "dev": "./run.sh",
     "phoenix": "rm -Rv node_modules && echo -------------------------------------------------------- && echo All node modules removed, reinstalling node modules && echo -------------------------------------------------------- && npm install && nodemon index"
   },
   "keywords": [],

@@ -33,7 +33,7 @@ const upload = multer({
 
 const router = express.Router();
 // User coments
-router.post('/api/coment/add', newComent);
+router.post('/coment/add', newComent);
 
 // Discord Link
 router.get('/api/discord/:token', verifyDiscordLink);

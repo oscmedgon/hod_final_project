@@ -6,8 +6,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const tokenParser = require('./config/tokenParser');
 const userParser = require('./config/userParser');
-
-var cors = require('cors');
+const cors = require('cors')
 
 const firebase = require('firebase');
 

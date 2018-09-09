@@ -1,6 +1,11 @@
 #!/bin/bash
 SECONDS=0
 
+. ~/.nvm/nvm.sh
+. ~/.profile
+. ~/.bashrc
+
+nvm use
 
 ## Installing dependencies
 npm install

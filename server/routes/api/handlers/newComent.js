@@ -1,4 +1,5 @@
 const Coment = require('../../../models/Coment');
+const User = require('../../../models/User');
 const moment = require('moment');
 
 function newComent (req, res) {
@@ -11,10 +12,18 @@ function newComent (req, res) {
     const coment = new Coment({author, article, likes: 0, dislikes: 0, title, body, date_of_creation, date_pretty});
     coment.save(coment)
     .then((response) => {
-        res.status(200).json({
-            data: response,
-            msg: 'Comentario publicado correctamente'
-        })
+        User.populate(response, {path: 'author'}, (error, response) => {
+            if (error) {
+                res.status(400).json({
+                    msg: 'Error al publicar el comentario',error: err
+                })
+            } else {
+                res.status(200).json({
+                    data: response,
+                    msg: 'Comentario publicado correctamente'
+                })
+            }
+        });
     })
     .catch((err) => {
         res.status(400).json({msg: 'Error al publicar el comentario',error: err});

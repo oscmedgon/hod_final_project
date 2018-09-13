@@ -6,6 +6,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const tokenParser = require('./config/tokenParser');
 const userParser = require('./config/userParser');
+const cors = require('cors')
 
 const firebase = require('firebase');
 
@@ -26,6 +27,9 @@ const routesApi = require('./routes/api');
 // Express inicialization
 const app = express();
 
+// Configuring cors
+app.use(cors());
+
 // Configuring express app
 // Setting template engine
 app.set('view engine', 'pug');
@@ -39,15 +43,15 @@ app.locals.moment = moment;
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Parsing body requests
-app.use(bodyParser.text({limit: 99999999999}));
+app.use(bodyParser.text({limit: 9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999}));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(tokenParser);
 app.use(userParser);
 
 // Calling routes
-app.use(routesClient);
-app.use(routesAuth);
-app.use(routesApi);
+app.use('/api', routesClient);
+app.use('/api', routesAuth);
+app.use('/api', routesApi);
 
 module.exports = app;

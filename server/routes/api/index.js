@@ -33,7 +33,7 @@ const upload = multer({
 
 const router = express.Router();
 // User coments
-router.post('/api/coment/add', newComent);
+router.post('/coment/add', newComent);
 
 // Discord Link
 router.get('/api/discord/:token', verifyDiscordLink);
@@ -53,7 +53,7 @@ router.post('/user/:id/modify/avatar', upload.single('file'), uploadCloudinary, 
 router.post('/user/:id/modify/data', userModifyData);
 router.delete('/api/article/:id/remove', removeArticle);
 router.put('/api/article/:id/modify', modifyArticle);
-router.post('/api/upload', uploadCloudinary);
+router.post('/api/upload', upload.single('file'), uploadCloudinary);
 
 router.get('/api/article/:id', getArticleToModify);
 router.post('/api/article/new', newArticle);

@@ -8,11 +8,13 @@ const getUserProfile = require('./handlers/getUserProfile');
 const getModifyForm = require('./handlers/getModifyForm');
 const getAdministration = require('./handlers/getAdministration');
 const activateAcount = require('./handlers/activateAcount');
+const getComentsForArticle = require('./handlers/getComentsForArticle');
 
 const router = express.Router();
 
-router.get('/', getFeturedArticles);
+router.get('/articles', getFeturedArticles);
 router.get('/articles/:category', getCategoryArticles);
+router.get('/article/coments/:id', getComentsForArticle)
 router.get('/article/:id', getArticle);
 router.get('/user/:id', getUserProfile);
 router.get('/user/:id/modify', getModifyForm);

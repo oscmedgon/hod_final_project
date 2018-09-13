@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node index.js",
     "superStart": "npm install && npm i nodemon --save-dev && nodemon index.js",
-    "dev": "nodemon index.js",
+    "dev": "./run.sh",
     "phoenix": "rm -Rv node_modules && echo -------------------------------------------------------- && echo All node modules removed, reinstalling node modules && echo -------------------------------------------------------- && npm install && nodemon index"
   },
   "keywords": [],
@@ -19,6 +19,7 @@
     "body-parser": "^1.18.2",
     "cloudinary": "^1.9.1",
     "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
     "del": "^3.0.0",
     "dotenv": "^4.0.0",
     "express": "^4.16.3",

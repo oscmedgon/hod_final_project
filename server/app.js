@@ -3,7 +3,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const moment = require('moment');
 const path = require('path');
-const cookieParser = require('cookie-parser');
 const tokenParser = require('./config/tokenParser');
 const userParser = require('./config/userParser');
 const cors = require('cors')

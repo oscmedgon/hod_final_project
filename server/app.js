@@ -32,10 +32,6 @@ app.use(cors());
 
 // Configuring express app
 // Setting template engine
-app.set('view engine', 'pug');
-app.set('views', path.join(__dirname, 'views'));
-
-app.use(cookieParser());
 
 // Setting time manager
 app.locals.moment = moment;
@@ -43,7 +39,6 @@ app.locals.moment = moment;
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Parsing body requests
-app.use(bodyParser.text({limit: 9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999}));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(tokenParser);

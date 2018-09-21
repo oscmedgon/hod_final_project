@@ -7,6 +7,7 @@
     "node": "8.9.3"
   },
   "scripts": {
+    "prestart": "npm i",
     "start": "node index.js",
     "superStart": "npm install && npm i nodemon --save-dev && nodemon index.js",
     "dev": "./run.sh",

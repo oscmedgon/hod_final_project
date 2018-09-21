@@ -3,3 +3,5 @@ node_modules
 yarn.lock
 private
 server/views/raw/bundle
+
+run\.log

@@ -10,7 +10,9 @@
     "start": "node index.js",
     "superStart": "npm install && npm i nodemon --save-dev && nodemon index.js",
     "dev": "nodemon index.js",
-    "phoenix": "rm -Rv node_modules && echo -------------------------------------------------------- && echo All node modules removed, reinstalling node modules && echo -------------------------------------------------------- && npm install && nodemon index"
+    "phoenix": "rm -Rv node_modules && echo -------------------------------------------------------- && echo All node modules removed, reinstalling node modules && echo -------------------------------------------------------- && npm install && nodemon index",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "keywords": [],
   "author": "Óscar Medina",
@@ -33,7 +35,8 @@
     "opbeat": "^4.16.0",
     "path": "^0.12.7",
     "pug": "^2.0.0-rc.4",
-    "request": "^2.83.0"
+    "request": "^2.83.0",
+    "snyk": "^1.161.1"
   },
   "devDependencies": {
     "event-stream": "^3.3.4",
@@ -48,5 +51,6 @@
     "gulp-sourcemaps": "^2.6.4",
     "gulp-watch": "^5.0.0",
     "nodemon": "^1.13.3"
-  }
+  },
+  "snyk": true
 }
